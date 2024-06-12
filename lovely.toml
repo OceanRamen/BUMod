@@ -1,0 +1,25 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]] #   Include nativefs module
+[patches.module]
+source = 'nativefs.lua'
+before = 'main.lua'
+name = 'nativefs'
+
+[[patches]] #   Patch Mod to main
+[patches.copy]
+target = "main.lua"
+position = "append"
+sources = ["mod.lua"]
+
+[[patches]] #   Initialize Mod
+[patches.pattern]
+target = "game.lua"
+pattern = "self:load_profile(G.SETTINGS.profile or 1)"
+position = "after"
+payload = "initMod()"
+match_indent = true
+overwrite = false
