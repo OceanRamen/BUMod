@@ -23,3 +23,12 @@ position = "after"
 payload = "initMod()"
 match_indent = true
 overwrite = false
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "self:set_language()"
+position = "after"
+payload = "initAssets()"
+match_indent = true
+overwrite = false
