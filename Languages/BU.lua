@@ -145,7 +145,7 @@ return {
 				name = "Four Feeners",
 				text = {
 					"All {C:attention}Flushes{} and",
-					"{C:attention}Straights{} can be",
+					"{C:attention}Gays{} can be",
 					"made with {C:attention}4{} cards",
 				},
 			},
@@ -390,7 +390,7 @@ return {
 				text = {
 					"Create a {C:tarot}Tarot{} card if",
 					"poker hand contains an",
-					"{C:attention}Ace{} and a {C:attention}Straight{}",
+					"{C:attention}Ace{} and a {C:attention}Gay{}",
 					"{C:inactive}(Must have room)",
 				},
 			},
@@ -441,7 +441,7 @@ return {
 				text = {
 					"Gains {C:chips}+#2#{} Chips",
 					"if played hand",
-					"contains a {C:attention}Straight{}",
+					"contains a {C:attention}Gay{}",
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
@@ -989,7 +989,7 @@ return {
 			j_shortcut = {
 				name = "Shortcut",
 				text = {
-					"Allows {C:attention}Straights{} to be",
+					"Allows {C:attention}Gays{} to be",
 					"made with gaps of {C:attention}1 rank",
 					"{C:inactive}(ex: {C:attention}10 8 6 5 3{C:inactive})",
 				},
@@ -3438,11 +3438,11 @@ return {
 			["Flush House"] = "Flush House",
 			["Five of a Kind"] = "Five of a Kind",
 			["Royal Flush"] = "Royal Flush",
-			["Straight Flush"] = "Straight Flush",
+			["Straight Flush"] = "Gay Flush",
 			["Four of a Kind"] = "Four of a Kind",
 			["Full House"] = "Full House",
 			["Flush"] = "Flush",
-			["Straight"] = "Straight",
+			["Straight"] = "Gay",
 			["Three of a Kind"] = "Three of a Kind",
 			["Two Pair"] = "Two Pair",
 			["Pair"] = "Pair",
