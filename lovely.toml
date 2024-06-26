@@ -44,3 +44,17 @@ replace_card:set_edition({negative = true})
 '''
 match_indent = true
 overwrite = true
+
+[[patches]]
+[patches.pattern]
+target = "card_character.lua"
+pattern = "self.children.card = Card(self.T.x, self.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, args.center or G.P_CENTERS.j_joker, {bypass_discovery_center = true})"
+position = "at"
+payload = '''
+self.children.card = Card(self.T.x, self.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, args.center or G.P_CENTERS.j_scholar, {bypass_discovery_center = true})
+if not args.center then
+  self.children.card:set_edition({negative = true})
+end
+'''
+match_indent = true
+overwrite = true

@@ -1187,7 +1187,7 @@ return {
 				},
 			},
 			j_ramen = {
-				name = "Ramen",
+				name = "Tasteful Noods",
 				text = {
 					"{X:mult,C:white} X#1# {} Mult,",
 					"loses {X:mult,C:white} X#2# {} Mult",
@@ -1393,7 +1393,7 @@ return {
 				},
 			},
 			j_triboulet = {
-				name = "Triboulet",
+				name = "Trouble",
 				text = {
 					"Played {C:attention}Kings{} and",
 					"{C:attention}Queens{} each give",
@@ -3616,7 +3616,7 @@ return {
 			b_options_cap = "OPTIONS",
 			b_collection_cap = "COLLECTION",
 			b_quit_cap = "QUIT",
-			b_cash_out = "Cash Out",
+			b_cash_out = "Get Me Out",
 			b_unlock_all = "Unlock All",
 			k_unknown = "?????",
 			k_compatible = "compatible",
@@ -3625,7 +3625,7 @@ return {
 			k_round = "Round",
 			k_ante = "Ante",
 			k_seed = "Seed",
-			k_reroll = "Reroll",
+			k_reroll = "One More",
 			k_mult = "Mult",
 			k_rank = "Rank",
 			k_suit = "Suit",
@@ -3734,7 +3734,7 @@ return {
 			ph_demo_thanks_1 = "Thanks for playing the",
 			ph_demo_thanks_2 = "BALATRO DEMO",
 			ph_game_over = "GAME OVER",
-			ph_you_win = "YOU WIN!",
+			ph_you_win = "CALCULATED!",
 			ph_you_win_demo = "YOU WIN THE DEMO!",
 			ph_vouchers_redeemed = "Vouchers redeemed this run",
 			ph_no_vouchers = "No vouchers redeemed this run",
@@ -3980,13 +3980,15 @@ return {
 			},
 		},
 		quips = {
-			wq_1 = { "You Aced it!" },
-			wq_2 = { "You dealt with", "that pretty well!" },
-			wq_3 = { "Looks like you", "weren't bluffing!" },
-			wq_4 = { "Too bad these", "chips are all", "virtual..." },
+      -- Win Quips
+			wq_1 = { "You can't keep","getting away", "with it!" },
+			wq_2 = { "Never Punished!" },
+			wq_3 = { "Pay the Believers!" },
+			wq_4 = { "GO BULLS!" },
 			wq_5 = { "Looks like I've", "taught you well!" },
-			wq_6 = { "You made some", "heads up plays!" },
-			wq_7 = { "Good thing", "I didn't bet", "against you!" },
+			wq_6 = { "Look at all that {C:gold}Muhniee!{}" },
+			wq_7 = { "Good thing", "I wasn't a", "Doubter!" },
+      -- Loss Quips
 			lq_1 = { "Maybe Go Fish", "is more our", "speed..." },
 			lq_2 = { "We folded like", "a cheap suit!" },
 			lq_3 = { "Time for us", "to shuffle off", "and try again!" },
