@@ -133,11 +133,11 @@ return {
 				},
 			},
 			j_stencil = {
-				name = "Jimbo Stencil",
+				name = "Stencil",
 				text = {
 					"{X:red,C:white} X1 {} Mult for each",
 					"empty {C:attention}Jimbo{} slot",
-					"{s:0.8}Jimbo Stencil included",
+					"{s:0.8}Stencil included",
 					"{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
 				},
 			},
@@ -145,7 +145,7 @@ return {
 				name = "Four Feeners",
 				text = {
 					"All {C:attention}Flushes{} and",
-					"{C:attention}Gays{} can be",
+					"{C:attention}Straights{} can be",
 					"made with {C:attention}4{} cards",
 				},
 			},
@@ -173,7 +173,7 @@ return {
 				},
 			},
 			j_lusty_joker = {
-				name = "Lusty Jimbo",
+				name = "Lustful Jimbo",
 				text = {
 					"Played cards with",
 					"{C:hearts}#2#{} suit give",
@@ -189,7 +189,7 @@ return {
 				},
 			},
 			j_gluttenous_joker = {
-				name = "Gluttonous Jimbo",
+				name = "Glutenous Jimbo",
 				text = {
 					"Played cards with",
 					"{C:clubs}#2#{} suit give",
@@ -197,7 +197,7 @@ return {
 				},
 			},
 			j_ceremonial = {
-				name = "Ceremonial Dagger",
+				name = "Stabby Stab",
 				text = {
 					"When {C:attention}Blind{} is selected,",
 					"destroy Jimbo to the right",
@@ -294,7 +294,7 @@ return {
 				},
 			},
 			j_scary_face = {
-				name = "Little Bit Spooky",
+				name = "Time to Get Spooky",
 				text = {
 					"Played {C:attention}face{} cards",
 					"give {C:chips}+#1#{} Chips",
@@ -390,7 +390,7 @@ return {
 				text = {
 					"Create a {C:tarot}Tarot{} card if",
 					"poker hand contains an",
-					"{C:attention}Ace{} and a {C:attention}Gay{}",
+					"{C:attention}Ace{} and a {C:attention}Straight{}",
 					"{C:inactive}(Must have room)",
 				},
 			},
@@ -441,7 +441,7 @@ return {
 				text = {
 					"Gains {C:chips}+#2#{} Chips",
 					"if played hand",
-					"contains a {C:attention}Gay{}",
+					"contains a {C:attention}Straight{}",
 					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
 				},
 			},
@@ -989,7 +989,7 @@ return {
 			j_shortcut = {
 				name = "Shortcut",
 				text = {
-					"Allows {C:attention}Gays{} to be",
+					"Allows {C:attention}Straights{} to be",
 					"made with gaps of {C:attention}1 rank",
 					"{C:inactive}(ex: {C:attention}10 8 6 5 3{C:inactive})",
 				},
@@ -1029,7 +1029,7 @@ return {
 				},
 			},
 			j_rocket = {
-				name = "Rocket",
+				name = "Rocket Money",
 				text = {
 					"Earn {C:money}$#1#{} at end of round",
 					"Payout increases by {C:money}$#2#{}",
@@ -1055,7 +1055,7 @@ return {
 				},
 			},
 			j_luchador = {
-				name = "Luchador",
+				name = "Nacho Libre",
 				text = {
 					"Sell this card to",
 					"disable the current",
@@ -1114,7 +1114,7 @@ return {
 				},
 			},
 			j_to_the_moon = {
-				name = "To the Moon",
+				name = "Stonks",
 				text = {
 					"Earn an extra {C:money}$#1#{} of",
 					"{C:attention}interest{} for every {C:money}$5{} you",
@@ -1131,7 +1131,7 @@ return {
 				},
 			},
 			j_lucky_cat = {
-				name = "Heckin' Chonker",
+				name = "George Albert Bartolomeow III",
 				text = {
 					"This Jimbo gains {X:mult,C:white} X#1# {} Mult",
 					"every time a {C:attention}Lucky{} card",
@@ -1147,7 +1147,7 @@ return {
 				},
 			},
 			j_bull = {
-				name = "Bull",
+				name = "Go Bulls!",
 				text = {
 					"{C:chips}+#1#{} Chips for",
 					"each {C:money}$1{} you have",
@@ -1171,7 +1171,7 @@ return {
 				},
 			},
 			j_flash = {
-				name = "JJ Joker",
+				name = "JJ Jimbo",
 				text = {
 					"This Jimbo gains {C:mult}+#1#{} Mult",
 					"per {C:attention}reroll{} in the shop",
@@ -1268,7 +1268,7 @@ return {
 				},
 			},
 			j_invisible = {
-				name = "Invisible Jimbo",
+				name = "John Cena",
 				text = {
 					"After {C:attention}#1#{} rounds,",
 					"sell this card to",
@@ -1470,7 +1470,7 @@ return {
 				},
 			},
 			v_hone = {
-				name = "Hone",
+				name = "Hone My Bone",
 				text = {
 					"{C:dark_edition}Foil{}, {C:dark_edition}Holographic{}, and",
 					"{C:dark_edition}Polychrome{} cards",
@@ -1546,7 +1546,7 @@ return {
 				},
 			},
 			v_directors_cut = {
-				name = "Director's Cut",
+				name = "Boss Reroll",
 				text = {
 					"Reroll Boss Blind",
 					"{C:attention}1{} time per Ante,",
@@ -1626,7 +1626,7 @@ return {
 				},
 			},
 			v_reroll_glut = {
-				name = "Reroll Glut",
+				name = "We Do a Little Rerolling",
 				text = {
 					"Rerolls cost",
 					"{C:money}$#1#{} less",
@@ -1707,7 +1707,7 @@ return {
 				},
 			},
 			v_antimatter = {
-				name = "Antimatter",
+				name = "We Did It",
 				text = {
 					"{C:dark_edition}+1{} Jimbo Slot",
 				},
@@ -1744,7 +1744,7 @@ return {
 				},
 			},
 			v_retcon = {
-				name = "Retcon",
+				name = "Time Loop",
 				text = {
 					"Reroll Boss Blind",
 					"{C:attention}unlimited{} times,",
@@ -2166,7 +2166,7 @@ return {
 				},
 			},
 			c_trance = {
-				name = "Trance",
+				name = "Trans",
 				text = {
 					"Add a {C:blue}Blue Seal{}",
 					"to {C:attention}1{} selected",
@@ -3438,11 +3438,11 @@ return {
 			["Flush House"] = "Flush House",
 			["Five of a Kind"] = "Five of a Kind",
 			["Royal Flush"] = "Royal Flush",
-			["Straight Flush"] = "Gay Flush",
+			["Straight Flush"] = "Straight Flush",
 			["Four of a Kind"] = "Four of a Kind",
 			["Full House"] = "Full House",
 			["Flush"] = "Flush",
-			["Straight"] = "Gay",
+			["Straight"] = "Straight",
 			["Three of a Kind"] = "Three of a Kind",
 			["Two Pair"] = "Two Pair",
 			["Pair"] = "Pair",

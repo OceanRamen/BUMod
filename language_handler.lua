@@ -37,7 +37,7 @@ function Game:set_language()
 			},
 			["BU"] = {
 				font = 1,
-				label = "Balatro University",
+				label = "Balatro Uni",
 				key = "BU",
 				beta = nil,
 				button = "Language Feedback",
