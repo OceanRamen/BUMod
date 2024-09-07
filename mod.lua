@@ -15,7 +15,7 @@ function initAssets()
 		px = 71,
 		py = 95,
 	}
-	
+
 	local file_data =
 		assert(nativefs.newFileData(asset.path), ("Failed to collect file data for Atlas %s"):format(asset.name))
 	local image_data =

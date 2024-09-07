@@ -3334,6 +3334,24 @@ return {
 			["3"] = "3",
 			["2"] = "2",
 		},
+		collabs = {
+			Spades = {
+				["1"] = "Default",
+				["2"] = "The Witcher",
+			},
+			Hearts = {
+				["1"] = "Default",
+				["2"] = "Among Us",
+			},
+			Clubs = {
+				["1"] = "Default",
+				["2"] = "Vampire Survivors",
+			},
+			Diamonds = {
+				["1"] = "Default",
+				["2"] = "Dave the Diver",
+			},
+		},
 		high_scores = {
 			hand = "Best Hand",
 			furthest_round = "Highest Round",
@@ -3548,6 +3566,7 @@ return {
 			b_copy = "Copy",
 			b_credits = "Credits",
 			b_stats = "Stats",
+			b_customize_deck = "Customize Deck",
 			b_settings = "Settings",
 			b_set_game = "Game",
 			b_set_video = "Video",
@@ -3716,7 +3735,8 @@ return {
 			k_choose = "Choose",
 			k_achievements_disabled = "Achievements Disabled",
 			k_trophies_disabled = "Trophies Disabled",
-			ph_improve_run = "<ERR>",
+			ph_improve_run = "Welcome to the Team!",
+			ph_display_stickers = "Display Stake Stickers during Run",
 			ph_no_boss_active = "no boss active",
 			ph_sneak_peek = "Sneak Peek",
 			ph_deck_preview_stones = "Stones",
@@ -3980,15 +4000,15 @@ return {
 			},
 		},
 		quips = {
-      -- Win Quips
-			wq_1 = { "You can't keep","getting away", "with it!" },
+			-- Win Quips
+			wq_1 = { "You can't keep", "getting away", "with it!" },
 			wq_2 = { "Never Punished!" },
 			wq_3 = { "Pay the Believers!" },
 			wq_4 = { "GO BULLS!" },
 			wq_5 = { "Looks like I've", "taught you well!" },
 			wq_6 = { "Look at all that {C:gold}Muhniee!{}" },
 			wq_7 = { "Good thing", "I wasn't a", "Doubter!" },
-      -- Loss Quips
+			-- Loss Quips
 			lq_1 = { "Maybe Go Fish", "is more our", "speed..." },
 			lq_2 = { "We folded like", "a cheap suit!" },
 			lq_3 = { "Time for us", "to shuffle off", "and try again!" },
@@ -3999,7 +4019,12 @@ return {
 			lq_8 = { "If I had hands", "I would have", "covered my eyes!" },
 			lq_9 = { "I'm literally", "a fool, what's", "your excuse?" },
 			lq_10 = { "What a flop!" },
-			dq_1 = { "Yikes! I hope you", "have a few tricks", "up your sleeve for", "this final challenge!" },
+			dq_1 = {
+				"Yikes! I hope you",
+				"have a few tricks",
+				"up your sleeve for",
+				"this final challenge!",
+			},
 		},
 		tutorial = {
 			sb_1 = {
