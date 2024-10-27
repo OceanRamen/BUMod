@@ -1,0 +1,81 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]] #   Include nativefs module
+[patches.module]
+source = 'nativefs.lua'
+before = 'main.lua'
+name = 'nativefs'
+
+[[patches]] #   Patch Mod to main
+[patches.copy]
+target = "main.lua"
+position = "append"
+sources = ["main.lua"]
+
+[[patches]] #   Initialize Mod
+[patches.pattern]
+target = "game.lua"
+pattern = "self:load_profile(G.SETTINGS.profile or 1)"
+position = "after"
+payload = "InitMod()"
+match_indent = true
+overwrite = false
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if not (love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) or G.F_ENGLISH_ONLY then"
+position = "at"
+payload = "if not ((love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) and not Mod.lang_BU()) or G.F_ENGLISH_ONLY then"
+match_indent = true
+overwrite = true
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "self:set_language()"
+position = "after"
+payload = "InitAssets()"
+match_indent = true
+overwrite = false
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)"
+position = "at"
+payload = '''
+local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CENTERS.j_scholar, G.P_CENTERS.j_scholar)
+replace_card:set_edition({negative = true})
+'''
+match_indent = true
+overwrite = true
+
+[[patches]]
+[patches.pattern]
+target = "card_character.lua"
+pattern = "self.children.card = Card(self.T.x, self.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, args.center or G.P_CENTERS.j_joker, {bypass_discovery_center = true})"
+position = "at"
+payload = '''
+self.children.card = Card(self.T.x, self.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, args.center or G.P_CENTERS.j_scholar, {bypass_discovery_center = true})
+if not args.center then
+  self.children.card:set_edition({negative = true})
+end
+'''
+match_indent = true
+overwrite = true
+
+#Replace Perkeo's "Duplicated" message with "Perkolated"
+[[patches]]
+[patches.regex]
+target = "card.lua"
+pattern = '''end\}\)\)\s*card_eval_status_text\s*\(\s*context\.blueprint_card\s*or\s*self\s*,\s*'extra'\s*,\s*nil\s*,\s*nil\s*,\s*nil\s*,\s*\{message\s*=\s*localize\('k_duplicated_ex'\)\s*\}\s*\)'''
+position = 'at'
+line_prepend = '$indent'
+payload = '''
+end}))
+    card_eval_status_text(context.blueprint_card or self, 'extra', nil, nil, nil, {message = "Perkolated!"})
+'''
