@@ -3,42 +3,48 @@ version = "1.0.0"
 dump_lua = true
 priority = 0
 
-[[patches]] #   Include nativefs module
+[[patches]]
 [patches.module]
 source = 'nativefs.lua'
 before = 'main.lua'
 name = 'nativefs'
 
-[[patches]] #   Patch Mod to main
+[[patches]]
 [patches.copy]
 target = "main.lua"
 position = "append"
 sources = ["main.lua"]
 
-[[patches]] #   Initialize Mod
+[[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "self:load_profile(G.SETTINGS.profile or 1)"
-position = "after"
-payload = "InitMod()"
+pattern = "for _, v in ipairs(self.FONTS) do"
+position = "before"
+payload = '''
+BUMod.setup_language()
+'''
 match_indent = true
 overwrite = false
 
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "if not (love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) or G.F_ENGLISH_ONLY then"
-position = "at"
-payload = "if not ((love.filesystem.read('localization/'..G.SETTINGS.language..'.lua')) and not Mod.lang_BU()) or G.F_ENGLISH_ONLY then"
+pattern = "G.SETTINGS.language = 'en-us'"
+position = "before"
+payload = '''
+BUMod.initial_language = G.SETTINGS.language
+'''
 match_indent = true
-overwrite = true
+overwrite = false
 
 [[patches]]
 [patches.pattern]
 target = "game.lua"
-pattern = "self:set_language()"
-position = "after"
-payload = "InitAssets()"
+pattern = "for i=1, #self.asset_images do"
+position = "before"
+payload = '''
+BUMod.setup_sprites()
+'''
 match_indent = true
 overwrite = false
 
@@ -49,7 +55,7 @@ pattern = "local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2
 position = "at"
 payload = '''
 local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CENTERS.j_scholar, G.P_CENTERS.j_scholar)
-replace_card:set_edition({negative = true})
+replace_card:set_edition({negative = true}, true)
 '''
 match_indent = true
 overwrite = true
@@ -62,13 +68,13 @@ position = "at"
 payload = '''
 self.children.card = Card(self.T.x, self.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, args.center or G.P_CENTERS.j_scholar, {bypass_discovery_center = true})
 if not args.center then
-  self.children.card:set_edition({negative = true})
+  self.children.card:set_edition({negative = true}, true)
 end
 '''
 match_indent = true
 overwrite = true
 
-#Replace Perkeo's "Duplicated" message with "Perkolated"
+# Replace Perkeo's "Duplicated" message with "Perkolated"
 [[patches]]
 [patches.regex]
 target = "card.lua"
