@@ -1,10 +1,11 @@
 local lovely = require("lovely")
 local nativefs = require("nativefs")
-Mod = {}
-Mod.INITIALIZED = true
-Mod.VER = "BU v1.0.1-alpha"
-Mod.PATH = nil
-Mod.UPDATE = true
+
+BUMod = {}
+BUMod.INITIALIZED = true
+BUMod.VER = "v1.1.0-beta"
+BUMod.PATH = nil
+BUMod.UPDATE = true
 
 local mod_dir = lovely.mod_dir -- Cache the base directory
 local found = false
@@ -14,7 +15,7 @@ for _, item in ipairs(nativefs.getDirectoryItems(mod_dir)) do
 	local itemPath = mod_dir .. "/" .. item
 	-- Check if the item is a directory and contains the search string
 	if nativefs.getInfo(itemPath, "directory") and string.lower(item):find(search_str) then
-		Mod.PATH = itemPath
+		BUMod.PATH = itemPath
 		found = true
 		break
 	end
@@ -25,33 +26,99 @@ if not found then
 	error("ERROR: Unable to locate BuMod directory.")
 end
 
--- Local function to load modules, handling errors gracefully
-local function loadModule(path)
-	local lovely = require("lovely")
-	local nativefs = require("nativefs")
-	local filePath = Mod.PATH .. path
-	local fileContent = nativefs.read(filePath)
-	if fileContent then
-		local success, err = pcall(load(fileContent))
-		if not success then
-			print(("Error loading module %s: %s"):format(path, err))
-		end
-	else
-		print(("Failed to read module file at %s"):format(filePath))
+--- @generic T
+--- @generic S
+--- @param target T
+--- @param source S
+--- @param ... any
+--- @return T | S
+function BUMod.table_merge(target, source, ...)
+	assert(type(target) == "table", "Target is not a table")
+	local tables_to_merge = { source, ... }
+	if #tables_to_merge == 0 then
+		return target
 	end
+
+	for k, t in ipairs(tables_to_merge) do
+		assert(type(t) == "table", string.format("Expected a table as parameter %d", k))
+	end
+
+	for i = 1, #tables_to_merge do
+		local from = tables_to_merge[i]
+		for k, v in pairs(from) do
+			if type(v) == "table" then
+				if v.__override then
+					v.__override = nil
+					target[k] = v
+				else
+					target[k] = target[k] or {}
+					target[k] = BUMod.table_merge(target[k], v)
+				end
+			else
+				target[k] = v
+			end
+		end
+	end
+
+	return target
 end
 
--- Initializes game modifications
-function InitMod()
-	loadModule("/language_handler.lua")
+function BUMod.get_localization()
+	return assert(loadstring(nativefs.read(BUMod.PATH .. "/localization/bu.lua")))()
 end
 
-function InitAssets()
-	local lovely = require("lovely")
-	local nativefs = require("nativefs")
+function BUMod.setup_language()
+	G.LANGUAGES["bu"] = {
+		font = 1,
+		label = "Balatro Uni",
+		key = "bu",
+		beta = nil,
+		button = "Language Feedback",
+		warning = {
+			"This language is still in Beta.",
+			"Click again to confirm",
+		},
+	}
+end
+
+local game_set_language_ref = Game.set_language
+function Game:set_language(...)
+	-- Store initially loaded language
+	BUMod.language_buffer = G.SETTINGS.language
+
+	-- Load english localization if BU is selected
+	if G.SETTINGS.language == "bu" then
+		G.SETTINGS.language = "en-us"
+	end
+
+	return game_set_language_ref(self, ...)
+end
+
+local init_localization_ref = init_localization
+function init_localization(...)
+	-- If initially loaded language is BU, select it
+	if BUMod.language_buffer == "bu" then
+		G.SETTINGS.language = "bu"
+		G.LANG = G.LANGUAGES["bu"]
+	end
+	BUMod.language_buffer = nil
+
+	-- If current language is BU, apply it
+	if G.SETTINGS.language == "bu" then
+		G.localization = BUMod.table_merge({}, G.localization, BUMod.get_localization())
+	end
+	return init_localization_ref(...)
+end
+
+function BUMod.setup_sprites()
+	-- Don't do anything if SMODS present
+	if SMODS and SMODS.can_load then
+		return
+	end
+
 	local asset = {
 		name = "Joker",
-		path = Mod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Jokers.png",
+		path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Jokers.png",
 		px = 71,
 		py = 95,
 	}
