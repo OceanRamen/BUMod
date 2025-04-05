@@ -3,7 +3,7 @@ local nativefs = require("nativefs")
 
 BUMod = {}
 BUMod.INITIALIZED = true
-BUMod.VER = "v1.1.0-beta"
+BUMod.VER = "v1.1.1-beta"
 BUMod.PATH = nil
 BUMod.UPDATE = true
 
@@ -64,7 +64,7 @@ function BUMod.table_merge(target, source, ...)
 end
 
 function BUMod.get_localization()
-	return assert(loadstring(nativefs.read(BUMod.PATH .. "/localization/bu.lua")))()
+	return assert(loadstring(nativefs.read(BUMod.PATH .. "/loc_files/bu.lua")))()
 end
 
 function BUMod.setup_language()
