@@ -137,3 +137,58 @@ function BUMod.setup_sprites()
 		py = asset.py,
 	}
 end
+
+local use_and_sell_buttons_ref = G.UIDEF.use_and_sell_buttons
+function G.UIDEF.use_and_sell_buttons(card)
+	local buttons = use_and_sell_buttons_ref(card)
+	if G.SETTINGS.language ~= "bu" then
+		return buttons
+	end
+
+	local set_loc_text = function(loc_text, consumeable_size, booster_pack_size)
+		local is_in_booster = card.area and card.area == G.pack_cards
+		local text_container = is_in_booster and buttons.nodes[2] or buttons.nodes[1].nodes[2].nodes[1].nodes[1]
+		local line_size = is_in_booster and (booster_pack_size or 0.3) or (consumeable_size or 0.35)
+
+		local result_nodes = {}
+		for i, text in ipairs(loc_text) do
+			table.insert(result_nodes, {
+				n = G.UIT.R,
+				config = {
+					align = "cm",
+				},
+				nodes = {
+					{
+						n = G.UIT.T,
+						config = {
+							text = text,
+							colour = G.C.UI.TEXT_LIGHT,
+							scale = line_size,
+							shadow = true,
+						},
+					},
+				},
+			})
+		end
+
+		text_container.nodes = {
+			{
+				n = G.UIT.C,
+				config = {},
+				nodes = result_nodes,
+			},
+		}
+	end
+
+	local center_name = card.config.center.key or card.config.center.name
+
+	if center_name == "Immolate" or center_name == "c_immolate" then
+		set_loc_text(localize("k_bu_immolate_use"))
+	elseif center_name == "The Hanged Man" or center_name == "c_hanged_man" then
+		set_loc_text(localize("k_bu_hanged_man_use"), 0.4)
+	end
+
+	return buttons
+end
+
+-- G.pack_cards:emplace(create_card('Spectral', G.pack_cards, nil, nil, nil, nil, "c_immolate"))
