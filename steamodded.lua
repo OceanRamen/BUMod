@@ -30,6 +30,36 @@ if Malverk then
 				text = { "Replace Spaceman with Zaino" },
 			},
 		},
+		{
+			key = "joker_duo_kitty_and_perkeo",
+			path = "single_jokers/j_duo.png",
+			set = "Joker",
+			keys = { "j_duo" },
+			loc_txt = {
+				name = "Kitty and Perkeo Duo",
+				text = { "Replace The Duo with Kitty and Perkeo" },
+			},
+		},
+		{
+			key = "joker_family_wingcap",
+			path = "single_jokers/j_family.png",
+			set = "Joker",
+			keys = { "j_family" },
+			loc_txt = {
+				name = "Wingcap's Family",
+				text = { "Replace The Family with Wingcap's Family" },
+			},
+		},
+		{
+			key = "joker_idol_stupid_cat",
+			path = "single_jokers/j_idol.png",
+			set = "Joker",
+			keys = { "j_idol" },
+			loc_txt = {
+				name = "Stupid's Cat Idol",
+				text = { "Replace The Idol with Stupid's Cat Idol" },
+			},
+		},
 	}
 
 	local result_keys = {}
