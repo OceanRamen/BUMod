@@ -60,6 +60,16 @@ if Malverk then
 				text = { "Replace The Idol with Stupid's Cat Idol" },
 			},
 		},
+		{
+			key = "tarot_hung_man",
+			path = "single_tarots/c_hanged_man.png",
+			set = "Tarot",
+			keys = { "c_hanged_man" },
+			loc_txt = {
+				name = "Hung Man",
+				text = { "Replace The Hanged Man with The Hung Man" },
+			},
+		},
 	}
 
 	local result_keys = {}
@@ -73,7 +83,7 @@ if Malverk then
 		textures = result_keys,
 		loc_txt = {
 			name = "BUMod",
-			text = { "Balatro University", "themed Jokers" },
+			text = { "Balatro University", "themed cards" },
 		},
 	})
 
@@ -91,6 +101,14 @@ else
 		px = 71,
 		py = 95,
 		path = "Jokers.png",
+		atlas_table = "ASSET_ATLAS",
+		raw_key = true,
+	})
+	SMODS.Atlas({
+		key = "Tarot",
+		px = 71,
+		py = 95,
+		path = "Tarots.png",
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
 	})

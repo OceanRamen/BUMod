@@ -116,26 +116,39 @@ function BUMod.setup_sprites()
 		return
 	end
 
-	local asset = {
-		name = "Joker",
-		path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Jokers.png",
-		px = 71,
-		py = 95,
+	local assets_to_load = {
+		{
+			name = "Joker",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Jokers.png",
+			px = 71,
+			py = 95,
+		},
+		{
+			name = "Tarot",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Tarots.png",
+			px = 71,
+			py = 95,
+		},
 	}
 
-	local file_data =
-		assert(nativefs.newFileData(asset.path), ("Failed to collect file data for Atlas %s"):format(asset.name))
-	local image_data =
-		assert(love.image.newImageData(file_data), ("Failed to initialize image data for Atlas %s"):format(asset.name))
-	local image = love.graphics.newImage(image_data, { mipmaps = true, dpiscale = G.SETTINGS.GRAPHICS.texture_scaling })
+	for _, asset in ipairs(assets_to_load) do
+		local file_data =
+			assert(nativefs.newFileData(asset.path), ("Failed to collect file data for Atlas %s"):format(asset.name))
+		local image_data = assert(
+			love.image.newImageData(file_data),
+			("Failed to initialize image data for Atlas %s"):format(asset.name)
+		)
+		local image =
+			love.graphics.newImage(image_data, { mipmaps = true, dpiscale = G.SETTINGS.GRAPHICS.texture_scaling })
 
-	G.ASSET_ATLAS[asset.name] = {
-		name = asset.name,
-		image = image,
-		type = asset.type,
-		px = asset.px,
-		py = asset.py,
-	}
+		G.ASSET_ATLAS[asset.name] = {
+			name = asset.name,
+			image = image,
+			type = asset.type,
+			px = asset.px,
+			py = asset.py,
+		}
+	end
 end
 
 local use_and_sell_buttons_ref = G.UIDEF.use_and_sell_buttons
