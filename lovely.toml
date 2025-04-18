@@ -44,6 +44,7 @@ pattern = "for i=1, #self.asset_images do"
 position = "before"
 payload = '''
 BUMod.setup_sprites()
+BUMod.setup_collabs()
 '''
 match_indent = true
 overwrite = false
