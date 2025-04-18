@@ -265,6 +265,25 @@ function G.UIDEF.use_and_sell_buttons(card)
 	return buttons
 end
 
+local can_discard_ref = G.FUNCS.can_discard
+function G.FUNCS.can_discard(e, ...)
+	if G.SETTINGS.language == "bu" then
+		local new_label = nil
+		if G.GAME.current_round.discards_used == 0 and next(find_joker("Trading Card")) and #G.hand.highlighted < 2 then
+			new_label = localize("b_bu_snap_off")
+		else
+			new_label = localize("b_discard")
+		end
+		local button_label = e.children[1].children[1]
+		if button_label.config.text ~= new_label then
+			button_label.config.text = new_label
+			button_label:update_text()
+			button_label.UIBox:recalculate()
+		end
+	end
+	return can_discard_ref(e, ...)
+end
+
 ---------
 
 BUMod.is_collabs_injected = false

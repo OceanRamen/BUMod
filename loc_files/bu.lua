@@ -650,6 +650,8 @@ return {
 
 			k_bu_immolate_use = { "LIGHT", "EM UP!" },
 			k_bu_hanged_man_use = { "HANG", "EM!" },
+
+			b_bu_snap_off = "Snap off!",
 		},
 		quips = {
 			lq_5 = {
