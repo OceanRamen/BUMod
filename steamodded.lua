@@ -18,7 +18,7 @@ if Malverk then
 	function create_texture_card(area, texture_pack)
 		local card = create_texture_card_ref(area, texture_pack)
 		if texture_pack == pack.key then
-			card:set_edition({ negative = true }, true)
+			card:set_edition({ negative = true }, true, true)
 		end
 		return card
 	end

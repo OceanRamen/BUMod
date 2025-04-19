@@ -56,7 +56,7 @@ pattern = "local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2
 position = "at"
 payload = '''
 local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CENTERS.j_scholar, G.P_CENTERS.j_scholar)
-replace_card:set_edition({negative = true}, true)
+replace_card:set_edition({negative = true}, true, true)
 '''
 match_indent = true
 overwrite = true
@@ -69,7 +69,7 @@ position = "at"
 payload = '''
 self.children.card = Card(self.T.x, self.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, args.center or G.P_CENTERS.j_scholar, {bypass_discovery_center = true})
 if not args.center then
-  self.children.card:set_edition({negative = true}, true)
+  self.children.card:set_edition({negative = true}, true, true)
 end
 '''
 match_indent = true
