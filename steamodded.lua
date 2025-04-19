@@ -421,7 +421,7 @@ BUMod.current_mod.credits_tab = function()
 															{
 																n = G.UIT.T,
 																config = {
-																	text = "stupidx",
+																	text = "stupxd",
 																	scale = 0.3,
 																	colour = G.C.MONEY,
 																	align = "cm",
