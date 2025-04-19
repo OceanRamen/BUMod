@@ -647,11 +647,13 @@ return {
 			ph_deck_preview_effective = "Effective total due to Jimbos, Blinds, and card enhancements",
 			ph_improve_run = "Welcome to the Team!",
 			ph_you_win = "CALCULATED!",
+			ph_game_over = "BUMMER!",
 
-			k_bu_immolate_use = { "LIGHT", "EM UP!" },
-			k_bu_hanged_man_use = { "HANG", "EM!" },
+			k_bu_immolate_use = { "LIGHT", "'EM UP" },
+			k_bu_hanged_man_use = { "HANG", "'EM" },
 
-			b_bu_snap_off = "Snap off!",
+			b_bu_snap_off = "Snap off",
+			b_bu_square_up = "Square up",
 		},
 		quips = {
 			lq_5 = {

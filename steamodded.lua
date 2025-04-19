@@ -1,3 +1,5 @@
+BUMod.current_mod = SMODS.current_mod
+
 if Malverk then
 	local result_keys = {}
 	for _, definition in ipairs(BUMod.CARDS) do
@@ -77,4 +79,417 @@ for _, asset in ipairs(BUMod.COLLABS) do
 			},
 		},
 	})
+end
+
+BUMod.current_mod.credits_tab = function()
+	return {
+		n = G.UIT.ROOT,
+		config = {
+			align = "cm",
+			padding = 0.05,
+			colour = G.C.CLEAR,
+		},
+		nodes = {
+			{
+				n = G.UIT.R,
+				config = {
+					padding = 0,
+					align = "cm",
+				},
+				nodes = {
+					{
+						n = G.UIT.O,
+						config = {
+							object = DynaText({
+								string = "Balatro University Mod",
+								colours = { G.C.MONEY },
+								shadow = true,
+								scale = 0.8,
+								float = true,
+								spacing = 5,
+							}),
+						},
+					},
+				},
+			},
+			{
+				n = G.UIT.R,
+				config = { minh = 0.15 },
+			},
+			{
+				n = G.UIT.R,
+				config = {
+					padding = 0,
+					align = "cm",
+				},
+				nodes = {
+					{
+						n = G.UIT.T,
+						config = {
+							text = "Special for DrSpectred",
+							shadow = true,
+							scale = 0.45,
+							colour = G.C.UI.TEXT_LIGHT,
+						},
+					},
+				},
+			},
+			{
+				n = G.UIT.R,
+				config = { minh = 0.25 },
+			},
+			{
+				n = G.UIT.R,
+				config = { align = "cm" },
+				nodes = {
+					{
+						n = G.UIT.R,
+						nodes = {
+							{
+								n = G.UIT.R,
+								config = {
+									padding = 0.2,
+									colour = G.C.BLACK,
+									r = 0.05,
+									minw = 6.65,
+									align = "m",
+								},
+								nodes = {
+									{
+										n = G.UIT.R,
+										config = {
+											align = "cm",
+										},
+										nodes = {
+											{
+												n = G.UIT.T,
+												config = {
+													text = "Code contributors",
+													scale = 0.45,
+													colour = G.C.UI.TEXT_LIGHT,
+													align = "cm",
+												},
+											},
+										},
+									},
+									{
+										n = G.UIT.R,
+										config = {
+											align = "cm",
+										},
+										nodes = {
+											{
+												n = G.UIT.C,
+												config = { align = "cm" },
+												nodes = {
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Created by ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "OceanRamen",
+																	scale = 0.3,
+																	colour = G.C.ORANGE,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Maintained by ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "SleepyG11",
+																	scale = 0.3,
+																	colour = G.C.ORANGE,
+																	align = "cm",
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+					{
+						n = G.UIT.R,
+						config = { minh = 0.15 },
+					},
+					{
+						n = G.UIT.R,
+						nodes = {
+							{
+								n = G.UIT.R,
+								config = {
+									padding = 0.2,
+									colour = G.C.BLACK,
+									r = 0.05,
+									minw = 6.65,
+									align = "m",
+								},
+								nodes = {
+									{
+										n = G.UIT.R,
+										config = {
+											align = "cm",
+										},
+										nodes = {
+											{
+												n = G.UIT.T,
+												config = {
+													text = "Art contributors",
+													scale = 0.45,
+													colour = G.C.UI.TEXT_LIGHT,
+													align = "cm",
+												},
+											},
+										},
+									},
+									{
+										n = G.UIT.R,
+										config = {
+											align = "cm",
+										},
+										nodes = {
+											{
+												n = G.UIT.C,
+												config = { align = "cm" },
+												nodes = {
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "TheMFDetra",
+																	scale = 0.3,
+																	colour = G.C.MONEY,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = " - ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Scholar",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "splatter",
+																	scale = 0.3,
+																	colour = G.C.MONEY,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = " - ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Showman",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "HonuKane",
+																	scale = 0.3,
+																	colour = G.C.MONEY,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = " - ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Spaceman, Hanged Man",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "KittyKnight",
+																	scale = 0.3,
+																	colour = G.C.MONEY,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = " - ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "The Duo, Balatro x Balatro Collab",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "stupidx",
+																	scale = 0.3,
+																	colour = G.C.MONEY,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = " - ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Idol",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = { padding = 0.025 },
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Wingcap",
+																	scale = 0.3,
+																	colour = G.C.MONEY,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = " - ",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "The Family",
+																	scale = 0.3,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
 end
