@@ -2,7 +2,7 @@
 	"id": "BUMod",
 	"name": "Balatro University Mod",
 	"display_name": "Balatro University Mod",
-	"author": ["OceanRamen"],
+	"author": ["OceanRamen", "SleepyG11"],
 	"description": "The Official Balatro University language and textures Mod",
 	"prefix": "bumod",
 	"main_file": "steamodded.lua",

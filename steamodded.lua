@@ -1,5 +1,12 @@
 BUMod.current_mod = SMODS.current_mod
 
+SMODS.Atlas({
+	key = "modicon",
+	path = "icon.png",
+	px = 48,
+	py = 48,
+})
+
 if Malverk then
 	local result_keys = {}
 	for _, definition in ipairs(BUMod.CARDS) do
