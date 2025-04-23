@@ -446,7 +446,7 @@ BUMod.current_mod.credits_tab = function()
 															{
 																n = G.UIT.T,
 																config = {
-																	text = "Idol",
+																	text = "Idol, Suspicious Doc Collabs",
 																	scale = 0.3,
 																	colour = G.C.UI.TEXT_LIGHT,
 																	align = "cm",

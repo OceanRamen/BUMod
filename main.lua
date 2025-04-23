@@ -87,6 +87,46 @@ BUMod.COLLABS = {
 		suit = "Spades",
 		loc_txt = "Balatro",
 	},
+	{
+		key = "sus_drs_clubs",
+		suit = "Clubs",
+		loc_txt = "Suspicious DrSpectred",
+	},
+	{
+		key = "sus_drs_diamonds",
+		suit = "Diamonds",
+		loc_txt = "Suspicious DrSpectred",
+	},
+	{
+		key = "sus_drs_hearts",
+		suit = "Hearts",
+		loc_txt = "Suspicious DrSpectred",
+	},
+	{
+		key = "sus_drs_spades",
+		suit = "Spades",
+		loc_txt = "Suspicious DrSpectred",
+	},
+	{
+		key = "v2_sus_drs_clubs",
+		suit = "Clubs",
+		loc_txt = "Suspicious DrSpectred V2",
+	},
+	{
+		key = "v2_sus_drs_diamonds",
+		suit = "Diamonds",
+		loc_txt = "Suspicious DrSpectred V2",
+	},
+	{
+		key = "v2_sus_drs_hearts",
+		suit = "Hearts",
+		loc_txt = "Suspicious DrSpectred V2",
+	},
+	{
+		key = "v2_sus_drs_spades",
+		suit = "Spades",
+		loc_txt = "Suspicious DrSpectred V2",
+	},
 }
 
 -- Malverk format
