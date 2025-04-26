@@ -3,7 +3,7 @@ local nativefs = require("nativefs")
 
 BUMod = {}
 BUMod.INITIALIZED = true
-BUMod.VER = "v1.1.1-beta"
+BUMod.VER = "v1.2.0"
 BUMod.PATH = nil
 BUMod.UPDATE = true
 
