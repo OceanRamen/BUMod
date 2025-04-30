@@ -83,6 +83,7 @@ for _, asset in ipairs(BUMod.COLLABS) do
 				display_ranks = { "Jack", "Queen", "King" },
 				pos_style = "collab",
 				atlas = hc_atlas.key,
+				hc_default = true,
 			},
 		},
 	})
