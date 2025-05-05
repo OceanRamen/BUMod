@@ -381,7 +381,7 @@ return {
 				},
 			},
 			j_turtle_bean = {
-				name = "Senzu Bean",
+				name = "Tuzzo Bean",
 			},
 			j_vampire = {
 				name = "Dr. Acula",

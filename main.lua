@@ -192,6 +192,16 @@ BUMod.CARDS = {
 		},
 	},
 	{
+		key = "joker_bean_tuzzo",
+		path = "single_jokers/j_turtle_bean.png",
+		set = "Joker",
+		keys = { "j_turtle_bean" },
+		loc_txt = {
+			name = "Tuzzo Bean",
+			text = { "Replace The Turtle Bean with Tuzzo Bean" },
+		},
+	},
+	{
 		key = "tarot_hung_man",
 		path = "single_tarots/c_hanged_man.png",
 		set = "Tarot",
@@ -199,6 +209,45 @@ BUMod.CARDS = {
 		loc_txt = {
 			name = "Hung Man",
 			text = { "Replace The Hanged Man with The Hung Man" },
+		},
+	},
+}
+
+BUMod.CREDITS = {
+	CORE_CONTRIBUTORS = {
+		{
+			text = "Created by",
+			name = "OceanRamen",
+		},
+		{
+			text = "Maintained by",
+			name = "SleepyG11",
+		},
+	},
+	ART_CONTRIBUTORS = {
+		{
+			name = "TheMFDetra",
+			text = "Scholar",
+		},
+		{
+			name = "splatter",
+			text = "Showman",
+		},
+		{
+			name = "HonuKane",
+			text = "Spaceman, Hanged Man",
+		},
+		{
+			name = "KittyKnight",
+			text = "The Duo, Balatro x Balatro Collab",
+		},
+		{
+			name = "stupxd",
+			text = "Idol, Suspicious Doc Collabs",
+		},
+		{
+			name = "Wingcap",
+			text = "The Family, Bean",
 		},
 	},
 }

@@ -90,6 +90,70 @@ for _, asset in ipairs(BUMod.COLLABS) do
 end
 
 BUMod.current_mod.credits_tab = function()
+	local code_contributors = {}
+	for _, contributor in ipairs(BUMod.CREDITS.CORE_CONTRIBUTORS) do
+		table.insert(code_contributors, {
+			n = G.UIT.R,
+			config = { padding = 0.025 },
+			nodes = {
+				{
+					n = G.UIT.T,
+					config = {
+						text = contributor.text .. " ",
+						scale = 0.3,
+						colour = G.C.UI.TEXT_LIGHT,
+						align = "cm",
+					},
+				},
+				{
+					n = G.UIT.T,
+					config = {
+						text = contributor.name,
+						scale = 0.3,
+						colour = G.C.ORANGE,
+						align = "cm",
+					},
+				},
+			},
+		})
+	end
+	local art_contributors = {}
+	for _, contributor in ipairs(BUMod.CREDITS.ART_CONTRIBUTORS) do
+		table.insert(art_contributors, {
+			n = G.UIT.R,
+			config = { padding = 0.025 },
+			nodes = {
+				{
+					n = G.UIT.T,
+					config = {
+						text = contributor.name,
+						scale = 0.3,
+						colour = G.C.MONEY,
+						align = "cm",
+					},
+				},
+				{
+					n = G.UIT.T,
+					config = {
+						text = " - ",
+						scale = 0.3,
+						colour = G.C.UI.TEXT_LIGHT,
+						align = "cm",
+					},
+				},
+				{
+					n = G.UIT.T,
+					config = {
+						text = contributor.text,
+						scale = 0.3,
+						colour = G.C.UI.TEXT_LIGHT,
+						align = "cm",
+					},
+				},
+			},
+		})
+	end
+
 	return {
 		n = G.UIT.ROOT,
 		config = {
@@ -185,62 +249,7 @@ BUMod.current_mod.credits_tab = function()
 										config = {
 											align = "cm",
 										},
-										nodes = {
-											{
-												n = G.UIT.C,
-												config = { align = "cm" },
-												nodes = {
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "Created by ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "OceanRamen",
-																	scale = 0.3,
-																	colour = G.C.ORANGE,
-																	align = "cm",
-																},
-															},
-														},
-													},
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "Maintained by ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "SleepyG11",
-																	scale = 0.3,
-																	colour = G.C.ORANGE,
-																	align = "cm",
-																},
-															},
-														},
-													},
-												},
-											},
-										},
+										nodes = code_contributors,
 									},
 								},
 							},
@@ -289,206 +298,7 @@ BUMod.current_mod.credits_tab = function()
 											{
 												n = G.UIT.C,
 												config = { align = "cm" },
-												nodes = {
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "TheMFDetra",
-																	scale = 0.3,
-																	colour = G.C.MONEY,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = " - ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "Scholar",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-														},
-													},
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "splatter",
-																	scale = 0.3,
-																	colour = G.C.MONEY,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = " - ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "Showman",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-														},
-													},
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "HonuKane",
-																	scale = 0.3,
-																	colour = G.C.MONEY,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = " - ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "Spaceman, Hanged Man",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-														},
-													},
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "KittyKnight",
-																	scale = 0.3,
-																	colour = G.C.MONEY,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = " - ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "The Duo, Balatro x Balatro Collab",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-														},
-													},
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "stupxd",
-																	scale = 0.3,
-																	colour = G.C.MONEY,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = " - ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "Idol, Suspicious Doc Collabs",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-														},
-													},
-													{
-														n = G.UIT.R,
-														config = { padding = 0.025 },
-														nodes = {
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "Wingcap",
-																	scale = 0.3,
-																	colour = G.C.MONEY,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = " - ",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-															{
-																n = G.UIT.T,
-																config = {
-																	text = "The Family",
-																	scale = 0.3,
-																	colour = G.C.UI.TEXT_LIGHT,
-																	align = "cm",
-																},
-															},
-														},
-													},
-												},
+												nodes = art_contributors,
 											},
 										},
 									},
