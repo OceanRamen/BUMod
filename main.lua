@@ -301,7 +301,11 @@ function G.UIDEF.use_and_sell_buttons(card)
 
 	if center_name == "Immolate" or center_name == "c_immolate" then
 		set_loc_text(localize("k_bu_immolate_use"))
-	elseif center_name == "The Wheel of Fortune" or center_name == "c_wheel_of_fortune" then
+	elseif
+		center_name == "The Wheel of Fortune"
+		or center_name == "c_wheel_of_fortune"
+		or center_name == "c_poke_leek"
+	then
 		set_loc_text(localize("k_bu_wheel_use"), 0.45, 0.5)
 	elseif center_name == "The Hanged Man" or center_name == "c_hanged_man" then
 		set_loc_text(localize("k_bu_hanged_man_use"), 0.4)
