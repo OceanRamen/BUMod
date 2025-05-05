@@ -651,6 +651,7 @@ return {
 
 			k_bu_immolate_use = { "LIGHT", "'EM UP" },
 			k_bu_hanged_man_use = { "HANG", "'EM" },
+			k_bu_wheel_use = { "SPIN" },
 
 			b_bu_snap_off = "Snap off",
 			b_bu_square_up = "Square up",

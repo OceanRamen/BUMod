@@ -288,7 +288,10 @@ function G.UIDEF.use_and_sell_buttons(card)
 		text_container.nodes = {
 			{
 				n = G.UIT.C,
-				config = {},
+				config = is_in_booster and {} or {
+					minh = 0.6,
+					align = "c",
+				},
 				nodes = result_nodes,
 			},
 		}
@@ -298,6 +301,8 @@ function G.UIDEF.use_and_sell_buttons(card)
 
 	if center_name == "Immolate" or center_name == "c_immolate" then
 		set_loc_text(localize("k_bu_immolate_use"))
+	elseif center_name == "The Wheel of Fortune" or center_name == "c_wheel_of_fortune" then
+		set_loc_text(localize("k_bu_wheel_use"), 0.45, 0.5)
 	elseif center_name == "The Hanged Man" or center_name == "c_hanged_man" then
 		set_loc_text(localize("k_bu_hanged_man_use"), 0.4)
 	end
@@ -430,3 +435,5 @@ function BUMod.setup_collabs_localization()
 		end
 	end
 end
+
+-- G.pack_cards:emplace(create_card("Tarot", nil, nil, nil, nil, nil, "c_wheel_of_fortune"))
