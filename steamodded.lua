@@ -48,6 +48,14 @@ else
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
 	})
+	SMODS.Atlas({
+		key = "Voucher",
+		px = 71,
+		py = 95,
+		path = "Vouchers.png",
+		atlas_table = "ASSET_ATLAS",
+		raw_key = true,
+	})
 end
 
 for _, asset in ipairs(BUMod.COLLABS) do
@@ -91,7 +99,7 @@ end
 
 BUMod.current_mod.credits_tab = function()
 	local code_contributors = {}
-	for _, contributor in ipairs(BUMod.CREDITS.CORE_CONTRIBUTORS) do
+	for _, contributor in ipairs(BUMod.CREDITS.CODE_CONTRIBUTORS) do
 		table.insert(code_contributors, {
 			n = G.UIT.R,
 			config = { padding = 0.025 },

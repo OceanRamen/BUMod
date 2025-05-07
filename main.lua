@@ -202,6 +202,16 @@ BUMod.CARDS = {
 		},
 	},
 	{
+		key = "joker_trading_card_teck",
+		path = "single_jokers/j_trading.png",
+		set = "Joker",
+		keys = { "j_trading" },
+		loc_txt = {
+			name = "Teck's Trading Card",
+			text = { "Replace Trading Card with Teck's Trading Card" },
+		},
+	},
+	{
 		key = "tarot_hung_man",
 		path = "single_tarots/c_hanged_man.png",
 		set = "Tarot",
@@ -211,10 +221,20 @@ BUMod.CARDS = {
 			text = { "Replace The Hanged Man with The Hung Man" },
 		},
 	},
+	{
+		key = "voucher_hone_honukane",
+		path = "single_vouchers/v_hone.png",
+		set = "Voucher",
+		keys = { "v_hone" },
+		loc_txt = {
+			name = "HonuKane's Hone",
+			text = { "Replace Hone with HonuKane" },
+		},
+	},
 }
 
 BUMod.CREDITS = {
-	CORE_CONTRIBUTORS = {
+	CODE_CONTRIBUTORS = {
 		{
 			text = "Created by",
 			name = "OceanRamen",
@@ -247,7 +267,7 @@ BUMod.CREDITS = {
 		},
 		{
 			name = "Wingcap",
-			text = "The Family, Bean",
+			text = "The Family, Bean, Trading Card, Hone",
 		},
 	},
 }
@@ -424,6 +444,12 @@ function BUMod.setup_sprites()
 		{
 			name = "Tarot",
 			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Tarots.png",
+			px = 71,
+			py = 95,
+		},
+		{
+			name = "Voucher",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Vouchers.png",
 			px = 71,
 			py = 95,
 		},

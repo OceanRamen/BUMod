@@ -608,7 +608,7 @@ return {
 				name = "We Go Back in Time",
 			},
 			v_hone = {
-				name = "Hone My Bone",
+				name = "HonuKane",
 			},
 			v_petroglyph = {
 				name = "We Go Back in Time Again???",
