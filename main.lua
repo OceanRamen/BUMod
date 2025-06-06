@@ -280,6 +280,18 @@ BUMod.CARDS = {
 			text = { "Trans textures set: Spectral cards" },
 		},
 	},
+	{
+		key = "deck_trans",
+		path = "single_decks/decks_trans.png",
+		set = "Back",
+		keys = {
+			"b_ghost",
+		},
+		loc_txt = {
+			name = "Trans Decks",
+			text = { "Trans textures set: Decks" },
+		},
+	},
 }
 
 BUMod.CREDITS = {
@@ -513,6 +525,12 @@ function BUMod.setup_sprites()
 			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/tags.png",
 			px = 34,
 			py = 34,
+		},
+		{
+			name = "centers",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Enhancers.png",
+			px = 71,
+			py = 95,
 		},
 	}
 
