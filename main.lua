@@ -231,6 +231,26 @@ BUMod.CARDS = {
 			text = { "Replace Hone with HonuKane" },
 		},
 	},
+	{
+		key = "boosters_spectral_trans",
+		path = "single_boosters/spectral_trans.png",
+		set = "Booster",
+		keys = { "p_spectral_normal_1", "p_spectral_normal_2", "p_spectral_jumbo_1", "p_spectral_mega_1" },
+		loc_txt = {
+			name = "Trans Spectral Packs",
+			text = { "Trans textures set: Spectral packs" },
+		},
+	},
+	{
+		key = "tags_trans",
+		path = "single_tags/tags_trans.png",
+		set = "Tag",
+		keys = { "tag_ethereal" },
+		loc_txt = {
+			name = "Trans Skip Tags",
+			text = { "Trans textures set: Skip tags" },
+		},
+	},
 }
 
 BUMod.CREDITS = {
@@ -452,6 +472,18 @@ function BUMod.setup_sprites()
 			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Vouchers.png",
 			px = 71,
 			py = 95,
+		},
+		{
+			name = "Booster",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/boosters.png",
+			px = 71,
+			py = 95,
+		},
+		{
+			name = "tags",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/tags.png",
+			px = 34,
+			py = 34,
 		},
 	}
 

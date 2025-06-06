@@ -56,6 +56,22 @@ else
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
 	})
+	SMODS.Atlas({
+		key = "Booster",
+		px = 71,
+		py = 95,
+		path = "boosters.png",
+		atlas_table = "ASSET_ATLAS",
+		raw_key = true,
+	})
+	SMODS.Atlas({
+		key = "tags",
+		px = 34,
+		py = 34,
+		path = "tags.png",
+		atlas_table = "ASSET_ATLAS",
+		raw_key = true,
+	})
 end
 
 for _, asset in ipairs(BUMod.COLLABS) do
