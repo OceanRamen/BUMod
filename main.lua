@@ -251,6 +251,35 @@ BUMod.CARDS = {
 			text = { "Trans textures set: Skip tags" },
 		},
 	},
+	{
+		key = "spectrals_trans",
+		path = "single_tarots/spectrals_trans.png",
+		set = "Spectral",
+		keys = {
+			"c_familiar",
+			"c_grim",
+			"c_incantation",
+			"c_talisman",
+			"c_aura",
+			"c_wraith",
+			"c_sigil",
+			"c_ouija",
+			"c_ectoplasm",
+			"c_immolate",
+			"c_ankh",
+			"c_deja_vu",
+			"c_hex",
+			"c_trance",
+			"c_medium",
+			"c_cryptid",
+			"c_soul",
+			"c_black_hole",
+		},
+		loc_txt = {
+			name = "Trans Spectral Cards",
+			text = { "Trans textures set: Spectral cards" },
+		},
+	},
 }
 
 BUMod.CREDITS = {
