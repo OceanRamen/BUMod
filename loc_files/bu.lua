@@ -14,7 +14,7 @@ return {
 		},
 		Blind = {
 			bl_arm = {
-				name = "Stinky",
+				name = "Grossier",
 			},
 			bl_final_acorn = {
 				text = {
@@ -33,16 +33,16 @@ return {
 				},
 			},
 			bl_flint = {
-				name = "Stinky",
+				name = "Vonyuchiy",
 			},
 			bl_ox = {
-				name = "Stinky",
+				name = "Brusco",
 			},
 			bl_plant = {
-				name = "Stinky",
+				name = "We're Cooked",
 			},
 			bl_water = {
-				name = "Stinky",
+				name = "Puzzolente",
 			},
 		},
 		Edition = {
@@ -71,9 +71,10 @@ return {
 				name = "The Betrayer",
 			},
 			j_blue_joker = {
-				name = "Way Too Blue Joker",
+				name = "Way Too Blue Jimbo",
 			},
 			j_blueprint = {
+				name = "Blue Jimbo",
 				text = {
 					[2] = "{C:attention}Jimbo{} to the right",
 				},
@@ -84,7 +85,7 @@ return {
 				},
 			},
 			j_brainstorm = {
-				name = "DJ Nasty",
+				name = "Djynasty",
 				text = {
 					[2] = "of leftmost {C:attention}Jimbo",
 				},
@@ -93,7 +94,7 @@ return {
 				name = "Go Bulls!",
 			},
 			j_burglar = {
-				name = "Bungler",
+				name = "Burger",
 			},
 			j_burnt = {
 				name = "Burnt Jimbo",
@@ -164,6 +165,9 @@ return {
 			j_faceless = {
 				name = "Faceless Jimbo",
 			},
+			j_family = {
+				name = "Wingcaps",
+			},
 			j_fibonacci = {
 				name = "Fibbin' Archie",
 			},
@@ -175,6 +179,9 @@ return {
 			},
 			j_four_fingers = {
 				name = "Four Feeners",
+				text = {
+					[2] = "{C:attention}Gays{} can be",
+				},
 			},
 			j_gift = {
 				text = {
@@ -276,8 +283,13 @@ return {
 			j_oops = {
 				name = "Suspiciously Many 6s",
 			},
+			j_order = {
+				text = {
+					[3] = "a {C:attention}Gay{}",
+				},
+			},
 			j_perkeo = {
-				name = "Perkolator",
+				name = "Plinko",
 			},
 			j_ramen = {
 				name = "Tasteful Noods",
@@ -310,12 +322,20 @@ return {
 			},
 			j_runner = {
 				name = "Running Man",
+				text = {
+					[3] = "contains a {C:attention}Gay{}",
+				},
 			},
 			j_scary_face = {
 				name = "Time to Get Spooky",
 			},
 			j_scholar = {
 				name = "Dr Spectred",
+			},
+			j_seance = {
+				text = {
+					[2] = "{C:attention}Gay Flush{}, create a",
+				},
 			},
 			j_sixth_sense = {
 				name = "Sixpence",
@@ -354,6 +374,12 @@ return {
 			j_stone = {
 				name = "Stone Jimbo",
 			},
+			j_superposition = {
+				text = {
+					[2] = "poker hand contains a",
+					[3] = "{C:attention}Gay Top{} or {C:attention}Gay Bottom{}",
+				},
+			},
 			j_swashbuckler = {
 				name = "Swashbonkler",
 				text = {
@@ -373,7 +399,7 @@ return {
 				name = "Trouble",
 			},
 			j_troubadour = {
-				name = "Troubadoob",
+				name = "Corrigan",
 			},
 			j_trousers = {
 				text = {
@@ -384,13 +410,13 @@ return {
 				name = "Tuzzo Bean",
 			},
 			j_vampire = {
-				name = "Dr. Acula",
+				name = "The Drizzler",
 				text = {
 					[1] = "This Jimbo gains {X:mult,C:white} X#1# {} Mult",
 				},
 			},
 			j_wee = {
-				name = "Problematically Large Joker",
+				name = "Problematically Large Jimbo",
 				text = {
 					[1] = "This Jimbo gains",
 				},
@@ -506,9 +532,6 @@ return {
 					[2] = "{C:legendary,E:1}Legendary{} Jimbo",
 				},
 			},
-			c_trance = {
-				name = "Trans",
-			},
 			c_wraith = {
 				text = {
 					[2] = "{C:red}Rare{C:attention} Jimbo{},",
@@ -622,6 +645,11 @@ return {
 		},
 	},
 	misc = {
+		poker_hands = {
+			["Royal Flush"] = "Royal Gay",
+			Straight = "Gay",
+			["Straight Flush"] = "Gay Flush",
+		},
 		achievement_descriptions = {
 			completionist_plus_plus = "Earn a Gold Sticker on every Jimbo",
 			legendary = "Discover a Legendary Jimbo",
