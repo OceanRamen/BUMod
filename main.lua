@@ -3,7 +3,7 @@ local nativefs = require("nativefs")
 
 BUMod = {}
 BUMod.INITIALIZED = true
-BUMod.VER = "v1.2.1"
+BUMod.VER = "v1.3.0"
 BUMod.PATH = nil
 BUMod.UPDATE = true
 
@@ -368,7 +368,7 @@ BUMod.CREDITS = {
 		},
 		{
 			name = "Wingcap",
-			text = "Family, Bean, Trading Card, Hone, Rocket, Troubadour",
+			text = { "The Family, Bean, Trading Card, Hone,", "Rocket, Troubadour" },
 		},
 		{
 			name = "Audrizzle058",

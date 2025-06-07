@@ -151,39 +151,99 @@ BUMod.current_mod.credits_tab = function()
 	end
 	local art_contributors = {}
 	for _, contributor in ipairs(BUMod.CREDITS.ART_CONTRIBUTORS) do
-		table.insert(art_contributors, {
-			n = G.UIT.R,
-			config = { padding = 0.025 },
-			nodes = {
-				{
-					n = G.UIT.T,
-					config = {
-						text = contributor.name,
-						scale = 0.3,
-						colour = G.C.MONEY,
-						align = "cm",
+		local text_lines = contributor.text
+		if type(text_lines) == "string" then
+			text_lines = { text_lines }
+		end
+		for i, line in ipairs(text_lines) do
+			table.insert(art_contributors, {
+				n = G.UIT.R,
+				config = { padding = 0.025 },
+				nodes = {
+					{
+						n = G.UIT.T,
+						config = {
+							text = contributor.name,
+							scale = 0.3,
+							colour = i == 1 and G.C.MONEY or G.C.CLEAR,
+							align = "cm",
+						},
+					},
+					{
+						n = G.UIT.T,
+						config = {
+							text = " - ",
+							scale = 0.3,
+							colour = i == 1 and G.C.UI.TEXT_LIGHT or G.C.CLEAR,
+							align = "cm",
+						},
+					},
+					{
+						n = G.UIT.T,
+						config = {
+							text = line,
+							scale = 0.3,
+							colour = G.C.UI.TEXT_LIGHT,
+							align = "cm",
+						},
 					},
 				},
-				{
-					n = G.UIT.T,
-					config = {
-						text = " - ",
-						scale = 0.3,
-						colour = G.C.UI.TEXT_LIGHT,
-						align = "cm",
-					},
-				},
-				{
-					n = G.UIT.T,
-					config = {
-						text = contributor.text,
-						scale = 0.3,
-						colour = G.C.UI.TEXT_LIGHT,
-						align = "cm",
-					},
-				},
-			},
-		})
+			})
+		end
+	end
+
+	local doc_card_area = CardArea(0, 0, G.CARD_W, G.CARD_H, {
+		highlight_limit = 0,
+		type = "title",
+		card_limit = 1,
+	})
+	local doc_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS.j_scholar)
+	doc_card:set_edition({ negative = true }, true, true)
+	doc_card_area:emplace(doc_card)
+	function doc_card:hover()
+		Moveable.hover(self)
+	end
+
+	local random_card_area = CardArea(0, 0, G.CARD_W, G.CARD_H, {
+		highlight_limit = 0,
+		type = "title",
+		card_limit = 1,
+	})
+	local random_cards = {
+		"j_ring_master",
+		"j_space",
+		"j_duo",
+		"j_family",
+		"j_idol",
+		"j_turtle_bean",
+		"j_trading",
+		"j_troubadour",
+		"j_vampire",
+		"j_rocket",
+		"j_banner",
+		"c_hanged_man",
+		"v_hone",
+	}
+	local random_index = math.random(#random_cards)
+	local random_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[random_cards[random_index]])
+	random_card_area:emplace(random_card)
+	function random_card:click()
+		random_index = random_index + 1
+		if random_index > #random_cards then
+			random_index = 1
+		end
+		local new_center = G.P_CENTERS[random_cards[random_index]]
+		self:set_ability(new_center, true, true)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				self:juice_up(0.05, 0.05)
+				return true
+			end,
+		}))
+		Moveable.click(self)
+	end
+	function random_card:hover()
+		Moveable.hover(self)
 	end
 
 	return {
@@ -247,95 +307,136 @@ BUMod.current_mod.credits_tab = function()
 				config = { align = "cm" },
 				nodes = {
 					{
-						n = G.UIT.R,
-						config = { align = "cm" },
+						n = G.UIT.C,
+						nodes = {
+							{
+								n = G.UIT.O,
+								config = {
+									object = doc_card_area,
+								},
+							},
+						},
+					},
+					{
+						n = G.UIT.C,
+						config = { minw = 0.1 },
+					},
+					{
+						n = G.UIT.C,
 						nodes = {
 							{
 								n = G.UIT.R,
-								config = {
-									padding = 0.2,
-									colour = G.C.BLACK,
-									r = 0.05,
-									minw = 6.65,
-									align = "cm",
-								},
+								config = { align = "cm" },
 								nodes = {
 									{
 										n = G.UIT.R,
-										config = {
-											align = "cm",
-										},
+										config = { align = "cm" },
 										nodes = {
 											{
-												n = G.UIT.T,
+												n = G.UIT.R,
 												config = {
-													text = "Code contributors",
-													scale = 0.45,
-													colour = G.C.UI.TEXT_LIGHT,
+													padding = 0.2,
+													colour = G.C.BLACK,
+													r = 0.05,
+													minw = 6.65,
 													align = "cm",
+												},
+												nodes = {
+													{
+														n = G.UIT.R,
+														config = {
+															align = "cm",
+														},
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Code contributors",
+																	scale = 0.45,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = {
+															align = "cm",
+														},
+														nodes = code_contributors,
+													},
 												},
 											},
 										},
 									},
 									{
 										n = G.UIT.R,
-										config = {
-											align = "cm",
+										config = { minh = 0.15 },
+									},
+									{
+										n = G.UIT.R,
+										config = { align = "cm" },
+										nodes = {
+											{
+												n = G.UIT.R,
+												config = {
+													padding = 0.2,
+													colour = G.C.BLACK,
+													r = 0.05,
+													minw = 6.65,
+													align = "cm",
+												},
+												nodes = {
+													{
+														n = G.UIT.R,
+														config = {
+															align = "cm",
+														},
+														nodes = {
+															{
+																n = G.UIT.T,
+																config = {
+																	text = "Art contributors",
+																	scale = 0.45,
+																	colour = G.C.UI.TEXT_LIGHT,
+																	align = "cm",
+																},
+															},
+														},
+													},
+													{
+														n = G.UIT.R,
+														config = {
+															align = "cm",
+														},
+														nodes = {
+															{
+																n = G.UIT.C,
+																config = { align = "cm" },
+																nodes = art_contributors,
+															},
+														},
+													},
+												},
+											},
 										},
-										nodes = code_contributors,
 									},
 								},
 							},
 						},
 					},
 					{
-						n = G.UIT.R,
-						config = { minh = 0.15 },
+						n = G.UIT.C,
+						config = { minw = 0.1 },
 					},
 					{
-						n = G.UIT.R,
-						config = { align = "cm" },
+						n = G.UIT.C,
 						nodes = {
 							{
-								n = G.UIT.R,
+								n = G.UIT.O,
 								config = {
-									padding = 0.2,
-									colour = G.C.BLACK,
-									r = 0.05,
-									minw = 6.65,
-									align = "cm",
-								},
-								nodes = {
-									{
-										n = G.UIT.R,
-										config = {
-											align = "cm",
-										},
-										nodes = {
-											{
-												n = G.UIT.T,
-												config = {
-													text = "Art contributors",
-													scale = 0.45,
-													colour = G.C.UI.TEXT_LIGHT,
-													align = "cm",
-												},
-											},
-										},
-									},
-									{
-										n = G.UIT.R,
-										config = {
-											align = "cm",
-										},
-										nodes = {
-											{
-												n = G.UIT.C,
-												config = { align = "cm" },
-												nodes = art_contributors,
-											},
-										},
-									},
+									object = random_card_area,
 								},
 							},
 						},
