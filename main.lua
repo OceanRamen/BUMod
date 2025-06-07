@@ -3,7 +3,7 @@ local nativefs = require("nativefs")
 
 BUMod = {}
 BUMod.INITIALIZED = true
-BUMod.VER = "v1.2.1"
+BUMod.VER = "v1.3.0"
 BUMod.PATH = nil
 BUMod.UPDATE = true
 
@@ -212,6 +212,36 @@ BUMod.CARDS = {
 		},
 	},
 	{
+		key = "joker_troubadour_wingcap",
+		path = "single_jokers/j_troubadour.png",
+		set = "Joker",
+		keys = { "j_troubadour" },
+		loc_txt = {
+			name = "Troubadour Bishop",
+			text = { "Replace Troubadour with Bishop" },
+		},
+	},
+	{
+		key = "joker_vampire_audrizzle",
+		path = "single_jokers/j_vampire.png",
+		set = "Joker",
+		keys = { "j_vampire" },
+		loc_txt = {
+			name = "Drizzle Vampire",
+			text = { "Replace Vampire with Dr. Drizzle" },
+		},
+	},
+	{
+		key = "joker_rocket_sleepyg11",
+		path = "single_jokers/j_rocket.png",
+		set = "Joker",
+		keys = { "j_rocket" },
+		loc_txt = {
+			name = "SleepyG11's Beloved Rocket",
+			text = { "Replace Rocket with Rocket G11" },
+		},
+	},
+	{
 		key = "tarot_hung_man",
 		path = "single_tarots/c_hanged_man.png",
 		set = "Tarot",
@@ -229,6 +259,77 @@ BUMod.CARDS = {
 		loc_txt = {
 			name = "HonuKane's Hone",
 			text = { "Replace Hone with HonuKane" },
+		},
+	},
+	{
+		key = "jokers_trans",
+		path = "single_jokers/jokers_trans.png",
+		set = "Joker",
+		keys = { "j_seance", "j_banner" },
+		loc_txt = {
+			name = "Trans/Pride Jokers",
+			text = { "Trans textures set: Jokers" },
+		},
+	},
+	{
+		key = "boosters_spectral_trans",
+		path = "single_boosters/spectral_trans.png",
+		set = "Booster",
+		keys = { "p_spectral_normal_1", "p_spectral_normal_2", "p_spectral_jumbo_1", "p_spectral_mega_1" },
+		loc_txt = {
+			name = "Trans Spectral Packs",
+			text = { "Trans textures set: Spectral packs" },
+		},
+	},
+	{
+		key = "tags_trans",
+		path = "single_tags/tags_trans.png",
+		set = "Tag",
+		keys = { "tag_ethereal" },
+		loc_txt = {
+			name = "Trans Skip Tags",
+			text = { "Trans textures set: Skip tags" },
+		},
+	},
+	{
+		key = "spectrals_trans",
+		path = "single_tarots/spectrals_trans.png",
+		set = "Spectral",
+		keys = {
+			"c_familiar",
+			"c_grim",
+			"c_incantation",
+			"c_talisman",
+			"c_aura",
+			"c_wraith",
+			"c_sigil",
+			"c_ouija",
+			"c_ectoplasm",
+			"c_immolate",
+			"c_ankh",
+			"c_deja_vu",
+			"c_hex",
+			"c_trance",
+			"c_medium",
+			"c_cryptid",
+			"c_soul",
+			"c_black_hole",
+		},
+		loc_txt = {
+			name = "Trans Spectral Cards",
+			text = { "Trans textures set: Spectral cards" },
+		},
+	},
+	{
+		key = "deck_trans",
+		path = "single_decks/decks_trans.png",
+		set = "Back",
+		keys = {
+			"b_ghost",
+		},
+		loc_txt = {
+			name = "Trans Decks",
+			text = { "Trans textures set: Decks" },
 		},
 	},
 }
@@ -267,7 +368,15 @@ BUMod.CREDITS = {
 		},
 		{
 			name = "Wingcap",
-			text = "The Family, Bean, Trading Card, Hone",
+			text = { "The Family, Bean, Trading Card, Hone,", "Rocket, Troubadour" },
+		},
+		{
+			name = "Audrizzle058",
+			text = "Vampire",
+		},
+		{
+			name = "Tuzzo",
+			text = "Banner",
 		},
 	},
 }
@@ -450,6 +559,24 @@ function BUMod.setup_sprites()
 		{
 			name = "Voucher",
 			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Vouchers.png",
+			px = 71,
+			py = 95,
+		},
+		{
+			name = "Booster",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/boosters.png",
+			px = 71,
+			py = 95,
+		},
+		{
+			name = "tags",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/tags.png",
+			px = 34,
+			py = 34,
+		},
+		{
+			name = "centers",
+			path = BUMod.PATH .. "/assets/" .. G.SETTINGS.GRAPHICS.texture_scaling .. "x/Enhancers.png",
 			px = 71,
 			py = 95,
 		},
