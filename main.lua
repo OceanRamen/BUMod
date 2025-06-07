@@ -212,6 +212,36 @@ BUMod.CARDS = {
 		},
 	},
 	{
+		key = "joker_troubadour_wingcap",
+		path = "single_jokers/j_troubadour.png",
+		set = "Joker",
+		keys = { "j_troubadour" },
+		loc_txt = {
+			name = "Troubadour Bishop",
+			text = { "Replace Troubadour with Bishop" },
+		},
+	},
+	{
+		key = "joker_vampire_audrizzle",
+		path = "single_jokers/j_vampire.png",
+		set = "Joker",
+		keys = { "j_vampire" },
+		loc_txt = {
+			name = "Drizzle Vampire",
+			text = { "Replace Vampire with Dr. Drizzle" },
+		},
+	},
+	{
+		key = "joker_rocket_sleepyg11",
+		path = "single_jokers/j_rocket.png",
+		set = "Joker",
+		keys = { "j_rocket" },
+		loc_txt = {
+			name = "SleepyG11's Beloved Rocket",
+			text = { "Replace Rocket with Rocket G11" },
+		},
+	},
+	{
 		key = "tarot_hung_man",
 		path = "single_tarots/c_hanged_man.png",
 		set = "Tarot",
@@ -229,6 +259,16 @@ BUMod.CARDS = {
 		loc_txt = {
 			name = "HonuKane's Hone",
 			text = { "Replace Hone with HonuKane" },
+		},
+	},
+	{
+		key = "jokers_trans",
+		path = "single_jokers/jokers_trans.png",
+		set = "Joker",
+		keys = { "j_seance", "j_banner" },
+		loc_txt = {
+			name = "Trans/Pride Jokers",
+			text = { "Trans textures set: Jokers" },
 		},
 	},
 	{
@@ -328,7 +368,15 @@ BUMod.CREDITS = {
 		},
 		{
 			name = "Wingcap",
-			text = "The Family, Bean, Trading Card, Hone",
+			text = "Family, Bean, Trading Card, Hone, Rocket, Troubadour",
+		},
+		{
+			name = "Audrizzle058",
+			text = "Vampire",
+		},
+		{
+			name = "Tuzzo",
+			text = "Banner",
 		},
 	},
 }

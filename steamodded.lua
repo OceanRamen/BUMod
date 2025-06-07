@@ -248,6 +248,7 @@ BUMod.current_mod.credits_tab = function()
 				nodes = {
 					{
 						n = G.UIT.R,
+						config = { align = "cm" },
 						nodes = {
 							{
 								n = G.UIT.R,
@@ -256,7 +257,7 @@ BUMod.current_mod.credits_tab = function()
 									colour = G.C.BLACK,
 									r = 0.05,
 									minw = 6.65,
-									align = "m",
+									align = "cm",
 								},
 								nodes = {
 									{
@@ -293,6 +294,7 @@ BUMod.current_mod.credits_tab = function()
 					},
 					{
 						n = G.UIT.R,
+						config = { align = "cm" },
 						nodes = {
 							{
 								n = G.UIT.R,
@@ -301,7 +303,7 @@ BUMod.current_mod.credits_tab = function()
 									colour = G.C.BLACK,
 									r = 0.05,
 									minw = 6.65,
-									align = "m",
+									align = "cm",
 								},
 								nodes = {
 									{
