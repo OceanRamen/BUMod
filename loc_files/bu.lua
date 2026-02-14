@@ -44,6 +44,9 @@ return {
 			bl_water = {
 				name = "Puzzolente",
 			},
+			bl_needle = {
+				name = "The Wurst",
+			},
 		},
 		Edition = {
 			e_negative = {
@@ -168,9 +171,6 @@ return {
 			j_family = {
 				name = "Wingcaps",
 			},
-			j_fibonacci = {
-				name = "Fibbin' Archie",
-			},
 			j_flash = {
 				name = "JJ Jimbo",
 				text = {
@@ -212,10 +212,8 @@ return {
 			j_half = {
 				name = "Halfsies Jimbo",
 			},
-			j_hanging_chad = {
-				name = "Gigachad",
-			},
 			j_hit_the_road = {
+				name = "Road Crash",
 				text = {
 					[1] = "This Jimbo gains {X:mult,C:white} X#1# {} Mult",
 				},
@@ -238,7 +236,7 @@ return {
 				},
 			},
 			j_joker = {
-				name = "Jimbo",
+				name = "Ben Starr",
 			},
 			j_jolly = {
 				name = "Jolly Jimbo",
@@ -253,7 +251,7 @@ return {
 				},
 			},
 			j_lusty_joker = {
-				name = "Lustful Jimbo",
+				name = "Lstuy Jmboi",
 			},
 			j_mad = {
 				name = "Mad Jimbo",
@@ -435,6 +433,17 @@ return {
 			},
 			j_zany = {
 				name = "Zany Jimbo",
+			},
+			j_shortcut = {
+				text = {
+					[1] = "Allows {C:attention}Gays{} to be",
+				},
+			},
+			j_smiley = {
+				name = "Ran Ran",
+			},
+			j_photograph = {
+				name = "Look at This",
 			},
 		},
 		Other = {
@@ -680,6 +689,7 @@ return {
 			k_bu_immolate_use = { "LIGHT", "'EM UP" },
 			k_bu_hanged_man_use = { "HANG", "'EM" },
 			k_bu_wheel_use = { "SPIN" },
+			k_bu_booster_open = { "LOOK", "INSIDE" },
 
 			b_bu_snap_off = "Snap off",
 			b_bu_square_up = "Square up",

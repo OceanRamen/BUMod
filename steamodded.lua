@@ -39,6 +39,7 @@ else
 		path = "Jokers.png",
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
+		prefix_config = { key = false },
 	})
 	SMODS.Atlas({
 		key = "Tarot",
@@ -47,6 +48,7 @@ else
 		path = "Tarots.png",
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
+		prefix_config = { key = false },
 	})
 	SMODS.Atlas({
 		key = "Voucher",
@@ -55,6 +57,7 @@ else
 		path = "Vouchers.png",
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
+		prefix_config = { key = false },
 	})
 	SMODS.Atlas({
 		key = "Booster",
@@ -63,6 +66,7 @@ else
 		path = "boosters.png",
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
+		prefix_config = { key = false },
 	})
 	SMODS.Atlas({
 		key = "tags",
@@ -71,6 +75,7 @@ else
 		path = "tags.png",
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
+		prefix_config = { key = false },
 	})
 	SMODS.Atlas({
 		key = "centers",
@@ -79,6 +84,7 @@ else
 		path = "Enhancers.png",
 		atlas_table = "ASSET_ATLAS",
 		raw_key = true,
+		prefix_config = { key = false },
 	})
 end
 
@@ -120,6 +126,31 @@ for _, asset in ipairs(BUMod.COLLABS) do
 		},
 	})
 end
+
+local random_cards = {
+	"j_ring_master",
+	"j_space",
+	"j_duo",
+	"j_family",
+	"j_idol",
+	"j_turtle_bean",
+	"j_trading",
+	"j_troubadour",
+	"j_vampire",
+	"j_rocket",
+	"j_banner",
+	"j_hit_the_road",
+	"j_cloud_9",
+	"j_fibonacci",
+	"j_lucky_cat",
+	"j_joker",
+	"j_lusty_joker",
+	"j_smiley",
+	"j_photograph",
+	"j_runner",
+	"c_hanged_man",
+	"v_hone",
+}
 
 BUMod.current_mod.credits_tab = function()
 	local code_contributors = {}
@@ -209,21 +240,7 @@ BUMod.current_mod.credits_tab = function()
 		type = "title",
 		card_limit = 1,
 	})
-	local random_cards = {
-		"j_ring_master",
-		"j_space",
-		"j_duo",
-		"j_family",
-		"j_idol",
-		"j_turtle_bean",
-		"j_trading",
-		"j_troubadour",
-		"j_vampire",
-		"j_rocket",
-		"j_banner",
-		"c_hanged_man",
-		"v_hone",
-	}
+
 	local random_index = math.random(#random_cards)
 	local random_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[random_cards[random_index]])
 	random_card_area:emplace(random_card)
@@ -443,6 +460,55 @@ BUMod.current_mod.credits_tab = function()
 					},
 				},
 			},
+		},
+	}
+end
+
+BUMod.current_mod.extra_tabs = function()
+	return {
+		{
+			label = "Collection",
+			tab_definition_function = function()
+				local areas = {}
+				for i = 1, 3 do
+					local area = CardArea(0, 0, 6 * G.CARD_W, G.CARD_H, {
+						highlight_limit = 0,
+						type = "title",
+						card_limit = 8,
+					})
+					local j = i - 1
+					for k = 1 + j * 8, 8 + j * 8 do
+						if random_cards[k] then
+							local random_card =
+								Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[random_cards[k]])
+							area:emplace(random_card)
+						end
+					end
+					table.insert(areas, {
+						n = G.UIT.R,
+						config = { align = "cm" },
+						nodes = {
+							{
+								n = G.UIT.O,
+								config = {
+									object = area,
+								},
+							},
+						},
+					})
+				end
+				return {
+					n = G.UIT.ROOT,
+					config = { align = "cm", colour = { 0, 0, 0, 0.1 }, r = 0.25 },
+					nodes = {
+						{
+							n = G.UIT.C,
+							config = { align = "cm", padding = 0.15 },
+							nodes = areas,
+						},
+					},
+				}
+			end,
 		},
 	}
 end

@@ -241,6 +241,48 @@ BUMod.CARDS = {
 			text = { "Replace Rocket with Rocket G11" },
 		},
 	},
+	-- TODO: add this
+	{
+		key = "joker_hit_the_road_crash",
+		path = "single_jokers/j_hit_the_road.png",
+		set = "Joker",
+		keys = { "j_hit_the_road" },
+		loc_txt = {
+			name = "Crash's Hit the Road",
+			text = { "Replace Hit the Road with Rocket Road Crash" },
+		},
+	},
+	{
+		key = "joker_cloud_9_rainbow",
+		path = "single_jokers/j_cloud_9.png",
+		set = "Joker",
+		keys = { "j_cloud_9" },
+		loc_txt = {
+			name = "Rainbow Cloud 9",
+			text = { "Replace Cloud 9 with Rainbow Cloud 9" },
+		},
+	},
+	{
+		key = "joker_fibonacci_dragonite",
+		path = "single_jokers/j_fibonacci.png",
+		set = "Joker",
+		keys = { "j_fibonacci" },
+		loc_txt = {
+			name = "Draconite Trans Cloud 9",
+			text = { "Replace Cloud 9 with Draconite Trans Cloud 9" },
+		},
+	},
+	{
+		key = "joker_lucky_cat_seasubbs",
+		path = "single_jokers/j_lucky_cat.png",
+		set = "Joker",
+		keys = { "j_lucky_cat" },
+		loc_txt = {
+			name = "Seadubbs's Cloud 9",
+			text = { "Replace Cloud 9 with Seadubb's Cat" },
+		},
+	},
+	--
 	{
 		key = "tarot_hung_man",
 		path = "single_tarots/c_hanged_man.png",
@@ -356,7 +398,7 @@ BUMod.CREDITS = {
 		},
 		{
 			name = "HonuKane",
-			text = "Spaceman, Hanged Man",
+			text = "Spaceman, Hanged Man, Showman",
 		},
 		{
 			name = "KittyKnight",
@@ -377,6 +419,10 @@ BUMod.CREDITS = {
 		{
 			name = "Tuzzo",
 			text = "Banner",
+		},
+		{
+			name = "Omega",
+			text = { "Lusty, Cloud 9, Hit the Road, Photograph", "Fibonacci, Lucky Cat, Smiley Face" },
 		},
 	},
 }
@@ -430,6 +476,37 @@ function init_localization(...)
 	return init_localization_ref(...)
 end
 
+function BUMod.get_open_button_definition()
+	local loc_text = localize("k_bu_booster_open")
+	local result_nodes = {
+		{ n = G.UIT.R, config = { minh = 0.35 } },
+	}
+	for i, text in ipairs(loc_text) do
+		table.insert(result_nodes, {
+			n = G.UIT.R,
+			config = {
+				align = "cm",
+				maxw = 0.75,
+			},
+			nodes = {
+				{
+					n = G.UIT.T,
+					config = {
+						text = text,
+						colour = G.C.UI.TEXT_LIGHT,
+						scale = 0.4,
+						shadow = true,
+					},
+				},
+			},
+		})
+	end
+	return {
+		n = G.UIT.C,
+		nodes = result_nodes,
+	}
+end
+
 local use_and_sell_buttons_ref = G.UIDEF.use_and_sell_buttons
 function G.UIDEF.use_and_sell_buttons(card)
 	local buttons = use_and_sell_buttons_ref(card)
@@ -478,15 +555,15 @@ function G.UIDEF.use_and_sell_buttons(card)
 	local center_name = card.config.center.key or card.config.center.name
 
 	if center_name == "Immolate" or center_name == "c_immolate" then
-		set_loc_text(localize("k_bu_immolate_use"))
+		pcall(set_loc_text, localize("k_bu_immolate_use"))
 	elseif
 		center_name == "The Wheel of Fortune"
 		or center_name == "c_wheel_of_fortune"
 		or center_name == "c_poke_leek"
 	then
-		set_loc_text(localize("k_bu_wheel_use"), 0.45, 0.5)
+		pcall(set_loc_text, localize("k_bu_wheel_use"), 0.45, 0.5)
 	elseif center_name == "The Hanged Man" or center_name == "c_hanged_man" then
-		set_loc_text(localize("k_bu_hanged_man_use"), 0.4)
+		pcall(set_loc_text, localize("k_bu_hanged_man_use"), 0.4)
 	end
 
 	return buttons
