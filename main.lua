@@ -445,10 +445,6 @@ BUMod.CREDITS = {
 			text = "Scholar",
 		},
 		{
-			name = "splatter",
-			text = "Showman",
-		},
-		{
 			name = "HonuKane",
 			text = "Spaceman, Hanged Man, Showman",
 		},
@@ -473,7 +469,7 @@ BUMod.CREDITS = {
 			text = "Banner",
 		},
 		{
-			name = "Omega",
+			name = "Omegaflowey18",
 			text = { "Lusty, Cloud 9, Hit the Road, Photograph,", "Fibonacci, Lucky Cat, Smiley Face" },
 		},
 	},

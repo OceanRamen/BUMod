@@ -163,7 +163,7 @@ BUMod.current_mod.credits_tab = function()
 					{
 						n = G.UIT.C,
 						config = {
-							minw = 1.5,
+							minw = 1.75,
 						},
 						nodes = {
 							{
