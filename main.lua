@@ -241,7 +241,6 @@ BUMod.CARDS = {
 			text = { "Replace Rocket with Rocket G11" },
 		},
 	},
-	-- TODO: add this
 	{
 		key = "joker_hit_the_road_crash",
 		path = "single_jokers/j_hit_the_road.png",
@@ -280,6 +279,56 @@ BUMod.CARDS = {
 		loc_txt = {
 			name = "Seadubbs's Cloud 9",
 			text = { "Replace Cloud 9 with Seadubb's Cat" },
+		},
+	},
+	{
+		key = "joker_joker_ben_starr",
+		path = "single_jokers/j_joker.png",
+		set = "Joker",
+		keys = { "j_joker" },
+		loc_txt = {
+			name = "Ben Starr Jimbo",
+			text = { "Replace Jimbo with Ben Starr" },
+		},
+	},
+	{
+		key = "joker_lusty_lstuy",
+		path = "single_jokers/j_lusty_joker.png",
+		set = "Joker",
+		keys = { "j_lusty_joker" },
+		loc_txt = {
+			name = "Lstuy Jmboi",
+			text = { "Replace Lusty with Lstuy Jmboi" },
+		},
+	},
+	{
+		key = "joker_photograph_hue",
+		path = "single_jokers/j_photograph.png",
+		set = "Joker",
+		keys = { "j_photograph" },
+		loc_txt = {
+			name = "Look at This Photograph",
+			text = { "Replace Photograph with hue rotated one" },
+		},
+	},
+	{
+		key = "joker_runner_1128",
+		path = "single_jokers/j_runner.png",
+		set = "Joker",
+		keys = { "j_runner" },
+		loc_txt = {
+			name = "Running Man",
+			text = { "Replace Runner with Running Man" },
+		},
+	},
+	{
+		key = "joker_smiley_face_twitch",
+		path = "single_jokers/j_smiley.png",
+		set = "Joker",
+		keys = { "j_smiley" },
+		loc_txt = {
+			name = "Smiley Face from Twitch",
+			text = { "Replace Smiley Face with smile from Twitch" },
 		},
 	},
 	--
@@ -328,6 +377,8 @@ BUMod.CARDS = {
 		path = "single_tags/tags_trans.png",
 		set = "Tag",
 		keys = { "tag_ethereal" },
+		px = 34,
+		py = 34,
 		loc_txt = {
 			name = "Trans Skip Tags",
 			text = { "Trans textures set: Skip tags" },
@@ -357,6 +408,7 @@ BUMod.CARDS = {
 			"c_soul",
 			"c_black_hole",
 		},
+		line_size = 10,
 		loc_txt = {
 			name = "Trans Spectral Cards",
 			text = { "Trans textures set: Spectral cards" },

@@ -32,60 +32,29 @@ if Malverk then
 		return card
 	end
 else
-	SMODS.Atlas({
-		key = "Joker",
-		px = 71,
-		py = 95,
-		path = "Jokers.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-		prefix_config = { key = false },
-	})
-	SMODS.Atlas({
-		key = "Tarot",
-		px = 71,
-		py = 95,
-		path = "Tarots.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-		prefix_config = { key = false },
-	})
-	SMODS.Atlas({
-		key = "Voucher",
-		px = 71,
-		py = 95,
-		path = "Vouchers.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-		prefix_config = { key = false },
-	})
-	SMODS.Atlas({
-		key = "Booster",
-		px = 71,
-		py = 95,
-		path = "boosters.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-		prefix_config = { key = false },
-	})
-	SMODS.Atlas({
-		key = "tags",
-		px = 34,
-		py = 34,
-		path = "tags.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-		prefix_config = { key = false },
-	})
-	SMODS.Atlas({
-		key = "centers",
-		px = 71,
-		py = 95,
-		path = "Enhancers.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-		prefix_config = { key = false },
-	})
+	for _, definition in ipairs(BUMod.CARDS) do
+		local atlas = SMODS.Atlas({
+			key = definition.key,
+			px = definition.px or 71,
+			py = definition.py or 95,
+			atlas_table = "ASSET_ATLAS",
+			path = definition.path,
+		})
+		for index, key in ipairs(definition.keys) do
+			local x = index - 1
+			local y = math.floor((index - 1) / (definition.line_size or math.huge))
+			if definition.line_size then
+				x = x % definition.line_size
+			end
+			SMODS[definition.set]:take_ownership(key, {
+				atlas = atlas.key,
+				pos = {
+					x = x,
+					y = y,
+				},
+			})
+		end
+	end
 end
 
 for _, asset in ipairs(BUMod.COLLABS) do
@@ -460,55 +429,6 @@ BUMod.current_mod.credits_tab = function()
 					},
 				},
 			},
-		},
-	}
-end
-
-BUMod.current_mod.extra_tabs = function()
-	return {
-		{
-			label = "Collection",
-			tab_definition_function = function()
-				local areas = {}
-				for i = 1, 3 do
-					local area = CardArea(0, 0, 6 * G.CARD_W, G.CARD_H, {
-						highlight_limit = 0,
-						type = "title",
-						card_limit = 8,
-					})
-					local j = i - 1
-					for k = 1 + j * 8, 8 + j * 8 do
-						if random_cards[k] then
-							local random_card =
-								Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[random_cards[k]])
-							area:emplace(random_card)
-						end
-					end
-					table.insert(areas, {
-						n = G.UIT.R,
-						config = { align = "cm" },
-						nodes = {
-							{
-								n = G.UIT.O,
-								config = {
-									object = area,
-								},
-							},
-						},
-					})
-				end
-				return {
-					n = G.UIT.ROOT,
-					config = { align = "cm", colour = { 0, 0, 0, 0.1 }, r = 0.25 },
-					nodes = {
-						{
-							n = G.UIT.C,
-							config = { align = "cm", padding = 0.15 },
-							nodes = areas,
-						},
-					},
-				}
-			end,
 		},
 	}
 end
