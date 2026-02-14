@@ -3,7 +3,7 @@ local nativefs = require("nativefs")
 
 BUMod = {}
 BUMod.INITIALIZED = true
-BUMod.VER = "v1.3.0"
+BUMod.VER = "v1.4.0"
 BUMod.PATH = nil
 BUMod.UPDATE = true
 
@@ -242,6 +242,97 @@ BUMod.CARDS = {
 		},
 	},
 	{
+		key = "joker_hit_the_road_crash",
+		path = "single_jokers/j_hit_the_road.png",
+		set = "Joker",
+		keys = { "j_hit_the_road" },
+		loc_txt = {
+			name = "Crash's Hit the Road",
+			text = { "Replace Hit the Road with Rocket Road Crash" },
+		},
+	},
+	{
+		key = "joker_cloud_9_rainbow",
+		path = "single_jokers/j_cloud_9.png",
+		set = "Joker",
+		keys = { "j_cloud_9" },
+		loc_txt = {
+			name = "Rainbow Cloud 9",
+			text = { "Replace Cloud 9 with Rainbow Cloud 9" },
+		},
+	},
+	{
+		key = "joker_fibonacci_dragonite",
+		path = "single_jokers/j_fibonacci.png",
+		set = "Joker",
+		keys = { "j_fibonacci" },
+		loc_txt = {
+			name = "Draconite Trans Cloud 9",
+			text = { "Replace Cloud 9 with Draconite Trans Cloud 9" },
+		},
+	},
+	{
+		key = "joker_lucky_cat_seasubbs",
+		path = "single_jokers/j_lucky_cat.png",
+		set = "Joker",
+		keys = { "j_lucky_cat" },
+		loc_txt = {
+			name = "Seadubbs's Cloud 9",
+			text = { "Replace Cloud 9 with Seadubb's Cat" },
+		},
+	},
+	{
+		key = "joker_joker_ben_starr",
+		path = "single_jokers/j_joker.png",
+		set = "Joker",
+		keys = { "j_joker" },
+		loc_txt = {
+			name = "Ben Starr Jimbo",
+			text = { "Replace Jimbo with Ben Starr" },
+		},
+	},
+	{
+		key = "joker_lusty_lstuy",
+		path = "single_jokers/j_lusty_joker.png",
+		set = "Joker",
+		keys = { "j_lusty_joker" },
+		loc_txt = {
+			name = "Lstuy Jmboi",
+			text = { "Replace Lusty with Lstuy Jmboi" },
+		},
+	},
+	{
+		key = "joker_photograph_hue",
+		path = "single_jokers/j_photograph.png",
+		set = "Joker",
+		keys = { "j_photograph" },
+		loc_txt = {
+			name = "Look at This Photograph",
+			text = { "Replace Photograph with hue rotated one" },
+		},
+	},
+	{
+		key = "joker_runner_1128",
+		path = "single_jokers/j_runner.png",
+		set = "Joker",
+		keys = { "j_runner" },
+		loc_txt = {
+			name = "Running Man",
+			text = { "Replace Runner with Running Man" },
+		},
+	},
+	{
+		key = "joker_smiley_face_twitch",
+		path = "single_jokers/j_smiley.png",
+		set = "Joker",
+		keys = { "j_smiley" },
+		loc_txt = {
+			name = "Smiley Face from Twitch",
+			text = { "Replace Smiley Face with smile from Twitch" },
+		},
+	},
+	--
+	{
 		key = "tarot_hung_man",
 		path = "single_tarots/c_hanged_man.png",
 		set = "Tarot",
@@ -286,6 +377,8 @@ BUMod.CARDS = {
 		path = "single_tags/tags_trans.png",
 		set = "Tag",
 		keys = { "tag_ethereal" },
+		px = 34,
+		py = 34,
 		loc_txt = {
 			name = "Trans Skip Tags",
 			text = { "Trans textures set: Skip tags" },
@@ -315,6 +408,7 @@ BUMod.CARDS = {
 			"c_soul",
 			"c_black_hole",
 		},
+		line_size = 10,
 		loc_txt = {
 			name = "Trans Spectral Cards",
 			text = { "Trans textures set: Spectral cards" },
@@ -351,12 +445,8 @@ BUMod.CREDITS = {
 			text = "Scholar",
 		},
 		{
-			name = "splatter",
-			text = "Showman",
-		},
-		{
 			name = "HonuKane",
-			text = "Spaceman, Hanged Man",
+			text = "Spaceman, Hanged Man, Showman",
 		},
 		{
 			name = "KittyKnight",
@@ -378,62 +468,125 @@ BUMod.CREDITS = {
 			name = "Tuzzo",
 			text = "Banner",
 		},
+		{
+			name = "Omegaflowey18",
+			text = { "Lusty, Cloud 9, Hit the Road, Photograph,", "Fibonacci, Lucky Cat, Smiley Face" },
+		},
 	},
 }
 
 ---------
 
+BUMod.custom_languages = {
+	["bu"] = true,
+	["bu_gay"] = true,
+}
+
 BUMod.language_buffer = nil
 function BUMod.get_localization()
-	return assert(loadstring(nativefs.read(BUMod.PATH .. "/loc_files/bu.lua")))()
+	return assert(loadstring(nativefs.read(BUMod.PATH .. "/localization/bu.lua")))()
+end
+function BUMod.get_gay_localization()
+	return assert(loadstring(nativefs.read(BUMod.PATH .. "/localization/bu_gay.lua")))()
 end
 function BUMod.setup_language()
-	G.LANGUAGES["bu"] = {
-		font = 1,
-		label = "Balatro Uni",
-		key = "bu",
-		beta = nil,
-		button = "Language Feedback",
-		warning = {
-			"This language is still in Beta.",
-			"Click again to confirm",
-		},
-	}
+	if not SMODS then
+		G.LANGUAGES["bu"] = {
+			font = 1,
+			label = "BalaUni",
+			key = "bu",
+			beta = nil,
+			button = "Language Feedback",
+			warning = {
+				"This language is still in Beta.",
+				"Click again to confirm",
+			},
+		}
+		G.LANGUAGES["bu_gay"] = {
+			font = 1,
+			label = "BalaUni*",
+			key = "bu_gay",
+			beta = nil,
+			button = "Language Feedback",
+			warning = {
+				"This language is still in Beta.",
+				"Click again to confirm",
+			},
+		}
+	end
 end
 local game_set_language_ref = Game.set_language
 function Game:set_language(...)
-	-- Store initially loaded language
-	BUMod.language_buffer = G.SETTINGS.language
+	if not SMODS then
+		-- Store initially loaded language
+		BUMod.language_buffer = G.SETTINGS.language
 
-	-- Load english localization if BU is selected
-	if G.SETTINGS.language == "bu" then
-		G.SETTINGS.language = "en-us"
+		-- Load english localization if BU is selected
+		if BUMod.custom_languages[G.SETTINGS.language] then
+			G.SETTINGS.language = "en-us"
+		end
 	end
 
 	return game_set_language_ref(self, ...)
 end
 local init_localization_ref = init_localization
 function init_localization(...)
-	-- If initially loaded language is BU, select it
-	if BUMod.language_buffer == "bu" then
-		G.SETTINGS.language = "bu"
-		G.LANG = G.LANGUAGES["bu"]
-	end
-	BUMod.language_buffer = nil
+	if not SMODS then
+		local buffer = BUMod.language_buffer
+		-- If initially loaded language is BU, select it
+		if BUMod.custom_languages[buffer] then
+			G.SETTINGS.language = buffer
+			G.LANG = G.LANGUAGES[buffer]
+		end
+		BUMod.language_buffer = nil
 
-	-- If current language is BU, apply it
-	if G.SETTINGS.language == "bu" then
-		G.localization = BUMod.table_merge({}, G.localization, BUMod.get_localization())
+		-- If current language is BU, apply it
+		if G.SETTINGS.language == "bu" then
+			G.localization = BUMod.table_merge({}, G.localization, BUMod.get_localization())
+		elseif G.SETTINGS.language == "bu_gay" then
+			G.localization = BUMod.table_merge({}, G.localization, BUMod.get_gay_localization())
+		end
+		BUMod.setup_collabs_localization()
 	end
-	BUMod.setup_collabs_localization()
 
 	return init_localization_ref(...)
+end
+
+function BUMod.get_open_button_definition()
+	local loc_text = localize("k_bu_booster_open")
+	local result_nodes = {
+		{ n = G.UIT.R, config = { minh = 0.35 } },
+	}
+	for i, text in ipairs(loc_text) do
+		table.insert(result_nodes, {
+			n = G.UIT.R,
+			config = {
+				align = "cm",
+				maxw = 0.75,
+			},
+			nodes = {
+				{
+					n = G.UIT.T,
+					config = {
+						text = text,
+						colour = G.C.UI.TEXT_LIGHT,
+						scale = 0.4,
+						shadow = true,
+					},
+				},
+			},
+		})
+	end
+	return {
+		n = G.UIT.C,
+		nodes = result_nodes,
+	}
 end
 
 local use_and_sell_buttons_ref = G.UIDEF.use_and_sell_buttons
 function G.UIDEF.use_and_sell_buttons(card)
 	local buttons = use_and_sell_buttons_ref(card)
-	if G.SETTINGS.language ~= "bu" then
+	if not BUMod.custom_languages[G.SETTINGS.language] then
 		return buttons
 	end
 
@@ -478,15 +631,15 @@ function G.UIDEF.use_and_sell_buttons(card)
 	local center_name = card.config.center.key or card.config.center.name
 
 	if center_name == "Immolate" or center_name == "c_immolate" then
-		set_loc_text(localize("k_bu_immolate_use"))
+		pcall(set_loc_text, localize("k_bu_immolate_use"))
 	elseif
 		center_name == "The Wheel of Fortune"
 		or center_name == "c_wheel_of_fortune"
 		or center_name == "c_poke_leek"
 	then
-		set_loc_text(localize("k_bu_wheel_use"), 0.45, 0.5)
+		pcall(set_loc_text, localize("k_bu_wheel_use"), 0.45, 0.5)
 	elseif center_name == "The Hanged Man" or center_name == "c_hanged_man" then
-		set_loc_text(localize("k_bu_hanged_man_use"), 0.4)
+		pcall(set_loc_text, localize("k_bu_hanged_man_use"), 0.4)
 	end
 
 	return buttons
@@ -539,7 +692,7 @@ function BUMod.load_asset(asset)
 end
 function BUMod.setup_sprites()
 	-- Don't do anything if SMODS present
-	if SMODS and SMODS.can_load then
+	if SMODS then
 		return
 	end
 
@@ -587,7 +740,7 @@ function BUMod.setup_sprites()
 	end
 end
 function BUMod.setup_collabs()
-	if SMODS and SMODS.can_load then
+	if SMODS then
 		return
 	end
 
@@ -628,7 +781,7 @@ function BUMod.setup_collabs()
 end
 
 function BUMod.setup_collabs_localization()
-	if SMODS and SMODS.can_load then
+	if SMODS then
 		return
 	end
 	if not G.localization then

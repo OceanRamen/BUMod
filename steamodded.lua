@@ -32,54 +32,29 @@ if Malverk then
 		return card
 	end
 else
-	SMODS.Atlas({
-		key = "Joker",
-		px = 71,
-		py = 95,
-		path = "Jokers.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-	})
-	SMODS.Atlas({
-		key = "Tarot",
-		px = 71,
-		py = 95,
-		path = "Tarots.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-	})
-	SMODS.Atlas({
-		key = "Voucher",
-		px = 71,
-		py = 95,
-		path = "Vouchers.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-	})
-	SMODS.Atlas({
-		key = "Booster",
-		px = 71,
-		py = 95,
-		path = "boosters.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-	})
-	SMODS.Atlas({
-		key = "tags",
-		px = 34,
-		py = 34,
-		path = "tags.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-	})
-	SMODS.Atlas({
-		key = "centers",
-		px = 71,
-		py = 95,
-		path = "Enhancers.png",
-		atlas_table = "ASSET_ATLAS",
-		raw_key = true,
-	})
+	for _, definition in ipairs(BUMod.CARDS) do
+		local atlas = SMODS.Atlas({
+			key = definition.key,
+			px = definition.px or 71,
+			py = definition.py or 95,
+			atlas_table = "ASSET_ATLAS",
+			path = definition.path,
+		})
+		for index, key in ipairs(definition.keys) do
+			local x = index - 1
+			local y = math.floor((index - 1) / (definition.line_size or math.huge))
+			if definition.line_size then
+				x = x % definition.line_size
+			end
+			SMODS[definition.set]:take_ownership(key, {
+				atlas = atlas.key,
+				pos = {
+					x = x,
+					y = y,
+				},
+			})
+		end
+	end
 end
 
 for _, asset in ipairs(BUMod.COLLABS) do
@@ -121,6 +96,31 @@ for _, asset in ipairs(BUMod.COLLABS) do
 	})
 end
 
+local random_cards = {
+	"j_ring_master",
+	"j_space",
+	"j_duo",
+	"j_family",
+	"j_idol",
+	"j_turtle_bean",
+	"j_trading",
+	"j_troubadour",
+	"j_vampire",
+	"j_rocket",
+	"j_banner",
+	"j_hit_the_road",
+	"j_cloud_9",
+	"j_fibonacci",
+	"j_lucky_cat",
+	"j_joker",
+	"j_lusty_joker",
+	"j_smiley",
+	"j_photograph",
+	"j_runner",
+	"c_hanged_man",
+	"v_hone",
+}
+
 BUMod.current_mod.credits_tab = function()
 	local code_contributors = {}
 	for _, contributor in ipairs(BUMod.CREDITS.CODE_CONTRIBUTORS) do
@@ -161,30 +161,48 @@ BUMod.current_mod.credits_tab = function()
 				config = { padding = 0.025 },
 				nodes = {
 					{
-						n = G.UIT.T,
+						n = G.UIT.C,
 						config = {
-							text = contributor.name,
-							scale = 0.3,
-							colour = i == 1 and G.C.MONEY or G.C.CLEAR,
-							align = "cm",
+							minw = 1.75,
+						},
+						nodes = {
+							{
+								n = G.UIT.T,
+								config = {
+									text = contributor.name,
+									scale = 0.3,
+									colour = i == 1 and G.C.MONEY or G.C.CLEAR,
+									align = "cm",
+								},
+							},
 						},
 					},
 					{
-						n = G.UIT.T,
-						config = {
-							text = " - ",
-							scale = 0.3,
-							colour = i == 1 and G.C.UI.TEXT_LIGHT or G.C.CLEAR,
-							align = "cm",
+						n = G.UIT.C,
+						nodes = {
+							{
+								n = G.UIT.T,
+								config = {
+									text = " - ",
+									scale = 0.3,
+									colour = i == 1 and G.C.UI.TEXT_LIGHT or G.C.CLEAR,
+									align = "cm",
+								},
+							},
 						},
 					},
 					{
-						n = G.UIT.T,
-						config = {
-							text = line,
-							scale = 0.3,
-							colour = G.C.UI.TEXT_LIGHT,
-							align = "cm",
+						n = G.UIT.C,
+						nodes = {
+							{
+								n = G.UIT.T,
+								config = {
+									text = line,
+									scale = 0.3,
+									colour = G.C.UI.TEXT_LIGHT,
+									align = "cm",
+								},
+							},
 						},
 					},
 				},
@@ -209,21 +227,7 @@ BUMod.current_mod.credits_tab = function()
 		type = "title",
 		card_limit = 1,
 	})
-	local random_cards = {
-		"j_ring_master",
-		"j_space",
-		"j_duo",
-		"j_family",
-		"j_idol",
-		"j_turtle_bean",
-		"j_trading",
-		"j_troubadour",
-		"j_vampire",
-		"j_rocket",
-		"j_banner",
-		"c_hanged_man",
-		"v_hone",
-	}
+
 	local random_index = math.random(#random_cards)
 	local random_card = Card(0, 0, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS[random_cards[random_index]])
 	random_card_area:emplace(random_card)
@@ -338,7 +342,7 @@ BUMod.current_mod.credits_tab = function()
 													padding = 0.2,
 													colour = G.C.BLACK,
 													r = 0.05,
-													minw = 6.65,
+													minw = 8,
 													align = "cm",
 												},
 												nodes = {
@@ -384,7 +388,7 @@ BUMod.current_mod.credits_tab = function()
 													padding = 0.2,
 													colour = G.C.BLACK,
 													r = 0.05,
-													minw = 6.65,
+													minw = 8,
 													align = "cm",
 												},
 												nodes = {
@@ -446,3 +450,12 @@ BUMod.current_mod.credits_tab = function()
 		},
 	}
 end
+
+SMODS.Language({
+	key = "bu",
+	label = "BalaUni",
+})
+SMODS.Language({
+	key = "bu_gay",
+	label = "BalaUni*",
+})
