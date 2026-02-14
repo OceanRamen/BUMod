@@ -432,3 +432,12 @@ BUMod.current_mod.credits_tab = function()
 		},
 	}
 end
+
+SMODS.Language({
+	key = "bu",
+	label = "BalaUni",
+})
+SMODS.Language({
+	key = "bu_gay",
+	label = "BalaUni*",
+})

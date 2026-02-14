@@ -481,49 +481,77 @@ BUMod.CREDITS = {
 
 ---------
 
+BUMod.custom_languages = {
+	["bu"] = true,
+	["bu_gay"] = true,
+}
+
 BUMod.language_buffer = nil
 function BUMod.get_localization()
-	return assert(loadstring(nativefs.read(BUMod.PATH .. "/loc_files/bu.lua")))()
+	return assert(loadstring(nativefs.read(BUMod.PATH .. "/localization/bu.lua")))()
+end
+function BUMod.get_gay_localization()
+	return assert(loadstring(nativefs.read(BUMod.PATH .. "/localization/bu_gay.lua")))()
 end
 function BUMod.setup_language()
-	G.LANGUAGES["bu"] = {
-		font = 1,
-		label = "Balatro Uni",
-		key = "bu",
-		beta = nil,
-		button = "Language Feedback",
-		warning = {
-			"This language is still in Beta.",
-			"Click again to confirm",
-		},
-	}
+	if not SMODS then
+		G.LANGUAGES["bu"] = {
+			font = 1,
+			label = "BalaUni",
+			key = "bu",
+			beta = nil,
+			button = "Language Feedback",
+			warning = {
+				"This language is still in Beta.",
+				"Click again to confirm",
+			},
+		}
+		G.LANGUAGES["bu_gay"] = {
+			font = 1,
+			label = "BalaUni*",
+			key = "bu_gay",
+			beta = nil,
+			button = "Language Feedback",
+			warning = {
+				"This language is still in Beta.",
+				"Click again to confirm",
+			},
+		}
+	end
 end
 local game_set_language_ref = Game.set_language
 function Game:set_language(...)
-	-- Store initially loaded language
-	BUMod.language_buffer = G.SETTINGS.language
+	if not SMODS then
+		-- Store initially loaded language
+		BUMod.language_buffer = G.SETTINGS.language
 
-	-- Load english localization if BU is selected
-	if G.SETTINGS.language == "bu" then
-		G.SETTINGS.language = "en-us"
+		-- Load english localization if BU is selected
+		if BUMod.custom_languages[G.SETTINGS.language] then
+			G.SETTINGS.language = "en-us"
+		end
 	end
 
 	return game_set_language_ref(self, ...)
 end
 local init_localization_ref = init_localization
 function init_localization(...)
-	-- If initially loaded language is BU, select it
-	if BUMod.language_buffer == "bu" then
-		G.SETTINGS.language = "bu"
-		G.LANG = G.LANGUAGES["bu"]
-	end
-	BUMod.language_buffer = nil
+	if not SMODS then
+		local buffer = BUMod.language_buffer
+		-- If initially loaded language is BU, select it
+		if BUMod.custom_languages[buffer] then
+			G.SETTINGS.language = buffer
+			G.LANG = G.LANGUAGES[buffer]
+		end
+		BUMod.language_buffer = nil
 
-	-- If current language is BU, apply it
-	if G.SETTINGS.language == "bu" then
-		G.localization = BUMod.table_merge({}, G.localization, BUMod.get_localization())
+		-- If current language is BU, apply it
+		if G.SETTINGS.language == "bu" then
+			G.localization = BUMod.table_merge({}, G.localization, BUMod.get_localization())
+		elseif G.SETTINGS.language == "bu_gay" then
+			G.localization = BUMod.table_merge({}, G.localization, BUMod.get_gay_localization())
+		end
+		BUMod.setup_collabs_localization()
 	end
-	BUMod.setup_collabs_localization()
 
 	return init_localization_ref(...)
 end
@@ -562,7 +590,7 @@ end
 local use_and_sell_buttons_ref = G.UIDEF.use_and_sell_buttons
 function G.UIDEF.use_and_sell_buttons(card)
 	local buttons = use_and_sell_buttons_ref(card)
-	if G.SETTINGS.language ~= "bu" then
+	if not BUMod.custom_languages[G.SETTINGS.language] then
 		return buttons
 	end
 
