@@ -3,7 +3,7 @@ local nativefs = require("nativefs")
 
 BUMod = {}
 BUMod.INITIALIZED = true
-BUMod.VER = "v1.3.0"
+BUMod.VER = "v1.4.0"
 BUMod.PATH = nil
 BUMod.UPDATE = true
 
@@ -474,7 +474,7 @@ BUMod.CREDITS = {
 		},
 		{
 			name = "Omega",
-			text = { "Lusty, Cloud 9, Hit the Road, Photograph", "Fibonacci, Lucky Cat, Smiley Face" },
+			text = { "Lusty, Cloud 9, Hit the Road, Photograph,", "Fibonacci, Lucky Cat, Smiley Face" },
 		},
 	},
 }
@@ -696,7 +696,7 @@ function BUMod.load_asset(asset)
 end
 function BUMod.setup_sprites()
 	-- Don't do anything if SMODS present
-	if SMODS and SMODS.can_load then
+	if SMODS then
 		return
 	end
 
@@ -744,7 +744,7 @@ function BUMod.setup_sprites()
 	end
 end
 function BUMod.setup_collabs()
-	if SMODS and SMODS.can_load then
+	if SMODS then
 		return
 	end
 
@@ -785,7 +785,7 @@ function BUMod.setup_collabs()
 end
 
 function BUMod.setup_collabs_localization()
-	if SMODS and SMODS.can_load then
+	if SMODS then
 		return
 	end
 	if not G.localization then

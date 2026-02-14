@@ -161,30 +161,48 @@ BUMod.current_mod.credits_tab = function()
 				config = { padding = 0.025 },
 				nodes = {
 					{
-						n = G.UIT.T,
+						n = G.UIT.C,
 						config = {
-							text = contributor.name,
-							scale = 0.3,
-							colour = i == 1 and G.C.MONEY or G.C.CLEAR,
-							align = "cm",
+							minw = 1.5,
+						},
+						nodes = {
+							{
+								n = G.UIT.T,
+								config = {
+									text = contributor.name,
+									scale = 0.3,
+									colour = i == 1 and G.C.MONEY or G.C.CLEAR,
+									align = "cm",
+								},
+							},
 						},
 					},
 					{
-						n = G.UIT.T,
-						config = {
-							text = " - ",
-							scale = 0.3,
-							colour = i == 1 and G.C.UI.TEXT_LIGHT or G.C.CLEAR,
-							align = "cm",
+						n = G.UIT.C,
+						nodes = {
+							{
+								n = G.UIT.T,
+								config = {
+									text = " - ",
+									scale = 0.3,
+									colour = i == 1 and G.C.UI.TEXT_LIGHT or G.C.CLEAR,
+									align = "cm",
+								},
+							},
 						},
 					},
 					{
-						n = G.UIT.T,
-						config = {
-							text = line,
-							scale = 0.3,
-							colour = G.C.UI.TEXT_LIGHT,
-							align = "cm",
+						n = G.UIT.C,
+						nodes = {
+							{
+								n = G.UIT.T,
+								config = {
+									text = line,
+									scale = 0.3,
+									colour = G.C.UI.TEXT_LIGHT,
+									align = "cm",
+								},
+							},
 						},
 					},
 				},
@@ -324,7 +342,7 @@ BUMod.current_mod.credits_tab = function()
 													padding = 0.2,
 													colour = G.C.BLACK,
 													r = 0.05,
-													minw = 6.65,
+													minw = 8,
 													align = "cm",
 												},
 												nodes = {
@@ -370,7 +388,7 @@ BUMod.current_mod.credits_tab = function()
 													padding = 0.2,
 													colour = G.C.BLACK,
 													r = 0.05,
-													minw = 6.65,
+													minw = 8,
 													align = "cm",
 												},
 												nodes = {
