@@ -267,8 +267,8 @@ BUMod.CARDS = {
 		set = "Joker",
 		keys = { "j_fibonacci" },
 		loc_txt = {
-			name = "Draconite Trans Cloud 9",
-			text = { "Replace Cloud 9 with Draconite Trans Cloud 9" },
+			name = "Draconite Trans Fibonacci",
+			text = { "Replace Fibonacci with Draconite Trans Fibonacci" },
 		},
 	},
 	{
@@ -277,8 +277,8 @@ BUMod.CARDS = {
 		set = "Joker",
 		keys = { "j_lucky_cat" },
 		loc_txt = {
-			name = "Seadubbs's Cloud 9",
-			text = { "Replace Cloud 9 with Seadubb's Cat" },
+			name = "Seadubbs's Lucky Cat",
+			text = { "Replace Lucky Cat with Seadubb's Cat" },
 		},
 	},
 	{
